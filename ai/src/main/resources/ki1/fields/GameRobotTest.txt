@@ -1,0 +1,335 @@
+package de.uni_bremen.factroytrouble.gameobjects;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+import static org.mockito.Mockito.when;
+
+import java.awt.Point;
+import java.util.Arrays;
+
+import org.junit.Before;
+import org.junit.Ignore;
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.mockito.Mock;
+import org.mockito.runners.MockitoJUnitRunner;
+
+import de.uni_bremen.factroytrouble.board.Tile;
+import de.uni_bremen.factroytrouble.misc.TestFactory;
+import de.uni_bremen.factroytrouble.player.Master;
+import de.uni_bremen.factroytrouble.player.MasterFactory;
+import de.uni_bremen.factroytrouble.player.ProgramCard;
+
+@RunWith(MockitoJUnitRunner.class)
+@Ignore
+public class GameRobotTest {
+
+    @Mock
+    private Master master;
+    @Mock
+    private Tile respawn;
+    @Mock
+    private Tile current;
+    @Mock
+    private ProgramCard card1;
+    @Mock
+    private ProgramCard card2;
+    @Mock
+    private ProgramCard card3;
+    @Mock
+    private ProgramCard card4;
+    @Mock
+    private ProgramCard card5;
+    @Mock
+    private ProgramCard card42;
+    @Mock
+    private MasterFactory factory;
+
+    private ProgramCard[] regCompare;
+    private GameRobot robot;
+
+    @Before
+    public void setUp() {
+        TestFactory.setMaster(master);
+        regCompare = new ProgramCard[Robot.MAX_REGISTERS];
+        regCompare[0] = card1;
+        regCompare[1] = card2;
+        regCompare[2] = card3;
+        regCompare[3] = card4;
+        regCompare[4] = card5;
+        robot = new GameRobot(respawn, Orientation.NORTH, "testRobot");
+        fillRegisters(Robot.MAX_REGISTERS);
+        robot.setCurrentTile(respawn);
+        robot.setRespawnPoint();
+        robot.setCurrentTile(current);
+
+        when(card1.getPriority()).thenReturn(100);
+        when(card2.getPriority()).thenReturn(200);
+        when(card3.getPriority()).thenReturn(300);
+        when(card4.getPriority()).thenReturn(60);
+        when(card5.getPriority()).thenReturn(110);
+
+        when(current.getCoordinates()).thenReturn(new Point(6, 6));
+        when(respawn.getCoordinates()).thenReturn(new Point(6, 1));
+    }
+
+    @Test
+    public void turnTest() {
+        // testet turn auf korrekte Abfolge der Orientierungen
+        robot.turn(true);
+        assertEquals(Orientation.WEST, robot.getOrientation());
+        robot.turn(true);
+        assertEquals(Orientation.SOUTH, robot.getOrientation());
+        robot.turn(true);
+        assertEquals(Orientation.EAST, robot.getOrientation());
+        robot.turn(true);
+        assertEquals(Orientation.NORTH, robot.getOrientation());
+
+        robot.turn(false);
+        assertEquals(Orientation.EAST, robot.getOrientation());
+        robot.turn(false);
+        assertEquals(Orientation.SOUTH, robot.getOrientation());
+        robot.turn(false);
+        assertEquals(Orientation.WEST, robot.getOrientation());
+        robot.turn(false);
+        assertEquals(Orientation.NORTH, robot.getOrientation());
+    }
+
+    @Test
+    public void registerTest() {
+        /*
+         * Testen von: 1. takeDamage, 2. lockNextRegister (durch takeDamage), 3.
+         * emptyRegister, 4. emptyAllRegister (zur Überprüfung benötigt bzgl.
+         * lock von Registern), 5. freeRegister
+         */
+        for (int dam = 1; dam < 5; dam++) {
+            robot.takeDamage();
+        }
+        // 4 Damage Token, kein Register gesperrt: alle Karten entnehmen; letzte
+        // Karte entnehmen
+        assertEquals(6, robot.getHP());
+        assertTrue(Arrays.deepEquals(regCompare, robot.emptyAllRegister()));
+        fillRegisters(Robot.MAX_REGISTERS);
+        assertEquals(card5, robot.emptyRegister(Robot.MAX_REGISTERS - 1));
+        // 5 Damage Token, 1 Register gesperrt, alle Karten entnehmen; letzte
+        // Karte entnehmen
+        robot.fillRegister(Robot.MAX_REGISTERS - 1, card5);
+        robot.takeDamage();
+        assertEquals(5, robot.getHP());
+        assertEquals(null, robot.emptyRegister(Robot.MAX_REGISTERS - 1));
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, card2, card3, card4, null }, robot.emptyAllRegister()));
+        // 6 Damage Token, 2 Register gesperrt
+        fillRegisters(Robot.MAX_REGISTERS - 1);
+        robot.takeDamage();
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, card2, card3, null, null }, robot.emptyAllRegister()));
+        // 7 Damage Token, 3 Register gesperrt
+        fillRegisters(Robot.MAX_REGISTERS - 2);
+        robot.takeDamage();
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, card2, null, null, null }, robot.emptyAllRegister()));
+        // 8 Damage Token, 4 Register gesperrt
+        fillRegisters(Robot.MAX_REGISTERS - 3);
+        robot.takeDamage();
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, null, null, null, null }, robot.emptyAllRegister()));
+        // 9 Damage Token, alle Register gesperrt
+        robot.fillRegister(0, card1);
+        robot.takeDamage();
+        assertEquals(1, robot.getHP());
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { null, null, null, null, null }, robot.emptyAllRegister()));
+        // freeRegister. Interessant, wenn OptionCard umgesetzt wird
+        // fillRegisters(Robot.MAX_REGISTERS);
+        robot.freeRegister(0);
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, null, null, null, null }, robot.emptyAllRegister()));
+        fillRegisters(Robot.MAX_REGISTERS - 4);
+        // 10. Damage Token: LP-Verlust, Damage Token auf 2 setzen
+        robot.takeDamage();
+        assertEquals(0, robot.getHP());
+    }
+
+    @Test
+    public void healTest() {
+        /*
+         * Testen von: 1. heal 2. freeNextRegister (durch heal mit abgedeckt)
+         */
+        while (robot.getHP() > 1) {
+            robot.takeDamage();
+        }
+        // Damage Token werden auf 8 reduziert und Register 1 freigeben
+        robot.heal();
+        assertEquals(2, robot.getHP());
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, null, null, null, null }, robot.emptyAllRegister()));
+        // Damage Token werden auf 7 reduziert und Register 2 freigeben
+        robot.fillRegister(0, card1);
+        robot.heal();
+        assertEquals(3, robot.getHP());
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, card2, null, null, null }, robot.emptyAllRegister()));
+        // Damage Token werden auf 6 reduziert und Register 3 freigegeben
+        fillRegisters(Robot.MAX_REGISTERS - 3);
+        robot.heal();
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, card2, card3, null, null }, robot.emptyAllRegister()));
+        // Damage Token werden auf 5 reduziert und Register 4 freigegeben
+        fillRegisters(Robot.MAX_REGISTERS - 2);
+        robot.heal();
+        assertTrue(Arrays.deepEquals(new ProgramCard[] { card1, card2, card3, card4, null }, robot.emptyAllRegister()));
+        // Damage Token werden auf 4 reduziert und Register 5 freigegeben
+        fillRegisters(Robot.MAX_REGISTERS - 1);
+        robot.heal();
+        assertEquals(6, robot.getHP());
+        assertTrue(Arrays.deepEquals(regCompare, robot.emptyAllRegister()));
+        // Heilung, wenn kein DamageToken vorhanden ist
+        while (robot.getHP() < 10) {
+            robot.heal();
+        }
+        robot.heal();
+        fillRegisters(Robot.MAX_REGISTERS);
+        assertEquals(10, robot.getHP());
+        assertTrue(Arrays.deepEquals(regCompare, robot.emptyAllRegister()));
+    }
+
+    @Test
+    public void healFullyTest() {
+        // Testen von healFully
+        while (robot.getHP() < 9) {
+            robot.takeDamage();
+        }
+        // Damage Token werden auf 0 gesetzt und alle Register freigegeben
+        robot.healFully();
+        assertEquals(10, robot.getHP());
+        assertTrue(Arrays.deepEquals(regCompare, robot.emptyAllRegister()));
+    }
+
+    @Test
+    public void killTest() {
+        // Testen von kill. kill durch takeDamage bereits getestet.
+        // Szenario: vollkommen intakter Roboter, der in ein Loch faehrt
+        // Erster Lebenspunkt wird abgeworfen
+        robot.kill();
+        assertTrue(robot.getCurrentTile() == null);
+        assertTrue(robot.getRespawnPoint().getCoordinates().equals(new Point(6, 1)));
+        assertEquals(2, robot.getLives());
+        assertEquals(8, robot.getHP());
+        assertTrue(Arrays.deepEquals(regCompare, robot.emptyAllRegister()));
+        // Zweiter Lebenspuntk wird abgeworfen
+        robot.respawn(respawn);
+        assertTrue(robot.getCurrentTile().getCoordinates().equals(new Point(6, 1)));
+        robot.kill();
+        assertEquals(1, robot.getLives());
+        // kill() versehentlich zweites Mal aufgerufen vor nächster Spielrunde
+        robot.kill();
+        assertEquals(1, robot.getLives());
+        assertTrue(robot.getCurrentTile() == null);
+        assertTrue(robot.getRespawnPoint().getCoordinates().equals(new Point(6, 1)));
+        // Letzter Lebenspunkt wird abgeworfen
+        robot.respawn(respawn);
+        robot.kill();
+        assertEquals(0, robot.getLives());
+        assertTrue(robot.getCurrentTile() == null);
+    }
+
+    @Test
+    public void fillRegisterTest() {
+        // Testen von fillRegister
+        while (robot.getHP() < 5) {
+            robot.takeDamage();
+        }
+        // Versuche eine neue Karte in ein gelocktes Register zu geben.
+        // Anderer Fall bereits indirekt getestet
+        assertTrue(!robot.fillRegister(4, card42));
+        // Versuche Karte in ein bereits gefülltes Register zu geben.
+        assertTrue(!robot.fillRegister(0, card42));
+    }
+
+    @Test
+    public void fillEmptyRegister() {
+        // Fülle 4 leere Register mit 4 Programmkarten auf.
+        // Zunächst Register 5 locken
+        while (robot.getHP() > 5) {
+            robot.takeDamage();
+        }
+        robot.emptyAllRegister(); // Register 1-4 leeren
+        robot.fillEmptyRegisters(new ProgramCard[] { card1, card2, card3, card4 });
+        robot.heal(); // 5. Register durch Heilung für Prüfung freigeben
+        assertTrue(Arrays.deepEquals(regCompare, robot.emptyAllRegister()));
+        // Fülle 4 leere Register mit 5 verfügbaren Programmkarten auf
+        fillRegisters(Robot.MAX_REGISTERS);
+        robot.takeDamage(); // 5. locken
+        robot.emptyAllRegister();// Register 1-4 leeren
+        robot.fillEmptyRegisters(new ProgramCard[] { card42, card1, card2, card3, card4 });
+        robot.heal();
+        assertTrue(
+                Arrays.deepEquals(new ProgramCard[] { card42, card1, card2, card3, card5 }, robot.emptyAllRegister()));
+        // Register außerhalb der Reihenfolge gelockt. Hier: 3. Register
+        fillRegisters(Robot.MAX_REGISTERS);
+        robot.lockRegister(2);//
+        robot.emptyAllRegister();
+        robot.fillEmptyRegisters(new ProgramCard[] { card42, card1, card2, card4, card5 });
+        robot.heal();
+        assertTrue(
+                Arrays.deepEquals(new ProgramCard[] { card42, card1, card3, card2, card4 }, robot.emptyAllRegister()));
+    }
+
+    @Test
+    public void executeTest() {
+        /*
+         * Testen von: 1. executeNext (indirekt durch getNextPriority) 2.
+         * getNextPriority
+         */
+        assertEquals(respawn, robot.getRespawnPoint());
+        // Roboter abgeschaltet
+        robot.powerDown();
+        assertEquals(100, robot.getNextPriority());
+        robot.executeNext();
+        assertEquals(100, robot.getNextPriority());
+        robot.wakeUp();
+        // Priorität 1. Registerphase
+        assertEquals(100, robot.getNextPriority());
+        // Priorität 2. Registerphase
+        robot.executeNext();
+        assertEquals(200, robot.getNextPriority());
+        // Prioriät 3. Registerphase
+        robot.executeNext();
+        assertEquals(300, robot.getNextPriority());
+        // Prioriät 4. Registerphase
+        robot.executeNext();
+        assertEquals(60, robot.getNextPriority());
+        // Priorität 5. Registerphase
+        robot.executeNext();
+        assertEquals(110, robot.getNextPriority());
+        // Nach 5. Registerphase folgt wieder 1. Registerphase. Priorität:
+        robot.executeNext();
+        assertEquals(100, robot.getNextPriority());
+    }
+
+    /*
+     * PowerDown-Test
+     */
+    @Test
+    public void poweredDownTest() {
+        // Startet eingeschaltet
+        assertTrue(!robot.isPoweredDown());
+        // Wird abgeschaltet
+        robot.powerDown();
+        assertTrue(robot.isPoweredDown());
+        // Wird eingeschaltet
+        robot.wakeUp();
+        assertTrue(!robot.isPoweredDown());
+    }
+
+    /*
+     * Berühren von Flaggen
+     */
+    @Test
+    public void touchFlagTest() {
+        assertEquals(robot.getFlagCounterStatus(), 0);
+        robot.touchFlag();
+        robot.touchFlag();
+        assertEquals(robot.getFlagCounterStatus(), 2);
+    }
+
+    // füllt die Register wieder auf beginnend mit card1 beim ersten Register.
+    private void fillRegisters(int toFill) {
+        boolean succeed;
+        for (int ii = 0; ii < toFill; ii++) {
+            succeed = robot.fillRegister(ii, regCompare[ii]);
+        }
+    }
+}

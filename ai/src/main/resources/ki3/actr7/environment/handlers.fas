@@ -1,0 +1,678 @@
+(|SYSTEM|::|VERSION| '(20080430.))
+#0Y_ #0Y |CHARSET|::|UTF-8|
+#Y(#:|1 116 (DEFMETHOD INITIALIZE-INSTANCE :AFTER ...)-1|
+   #43Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE DF
+        E0 E1 E2 E3 E4 E5 38 02 72 3A 7B 01 7B 08 2D 03 0C 19 01)
+   (|CLOS|::|INITIALIZE-INSTANCE| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|1 116 (DEFMETHOD INITIALIZE-INSTANCE :AFTER ...)-1-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|1 116 (DEFMETHOD INITIALIZE-INSTANCE :AFTER ...)-1-1-1|
+           #16Y(00 00 00 00 01 00 00 00 21 17 DA AF A0 9B 01 03)
+           (#Y(#:|1 116 (DEFMETHOD INITIALIZE-INSTANCE :AFTER ...)-1-1-1-1|
+               #32Y(00 00 00 00 01 00 00 00 E0 1C 00 00 00 00 6B 00 DB AD DC 72
+                    43 AF 9E 7A DB AF DC AF 32 44 19 05)
+               (|COMMON-LISP-USER|::|*ENVIRONMENT-CONTROL*|
+                |COMMON-LISP-USER|::|ENVIRONMENT-CONTROL| 8.)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)))
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| (:|AFTER|) :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP|::|&KEY|) |CLOS|::|SIGNATURE|
+    #(1. 0. |COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENV-WINDOW-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|118 142 (DEFMETHOD SAFE-UPDATE-EVALUATION (# ARG) ...)-2|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|SAFE-UPDATE-EVALUATION| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|118 142 (DEFMETHOD SAFE-UPDATE-EVALUATION (# ARG) ...)-2-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|118 142 (DEFMETHOD SAFE-UPDATE-EVALUATION (# ARG) ...)-2-1-1|
+           #170Y(03 00 01 00 02 00 00 00 20 03 00 2B 02 7F 03 00 00 7F 02 00 01
+                 47 00 10 AE 6D 01 01 B0 6D 02 01 57 03 B0 36 00 16 06 48 42 02
+                 AC 72 38 DE 8B 05 06 AC 72 38 25 06 16 AD 02 14 40 02 19 06 58
+                 67 00 00 01 76 00 AD 36 01 18 03 01 19 02 AC 38 02 72 8F 68 04
+                 00 6F 07 68 05 00 6F 08 68 06 00 6F 09 E4 B0 38 02 31 95 AF 2F
+                 0B 10 0C B1 B3 31 8D 11 AF 2F 0D E8 B0 38 02 31 95 AF 2F 0B 10
+                 0C B0 B3 31 8D 11 AF 2F 0D E9 B0 38 02 31 95 AF 2F 0B 10 0C AF
+                 B3 31 8D 11 AF 2F 0D AF 31 97 16 03 AC 81 90 00 30 10 63 00 1B
+                 FF 8F)
+           (|COMMON-LISP|::|NIL|
+            #Y(#:|118 142 (DEFMETHOD SAFE-UPDATE-EVALUATION (# ARG) ...)-2-1-1-1|
+               #16Y(00 00 00 00 00 00 00 00 20 01 DA 2C 01 01 19 01)
+               (|COMMON-LISP|::|NIL|
+                #Y(#:|118 142 (DEFMETHOD SAFE-UPDATE-EVALUATION (# ARG) ...)-2-1-1-1-1|
+                   #16Y(00 00 00 00 01 00 00 00 20 02 63 AE 40 02 49 00)
+                   (|COMMON-LISP|::|NIL|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)))
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+            #Y(#:|118 142 (DEFMETHOD SAFE-UPDATE-EVALUATION (# ARG) ...)-2-1-1-2|
+               #23Y(00 00 00 00 00 00 00 00 20 01 69 00 01 6F 01 69 00 02 61 01
+                    9B 00 01)
+               (|COMMON-LISP|::|NIL| |COMMON-LISP-USER|::|UPDATE-FORM|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            (#(|COMMON-LISP|::|ERROR| 52.) 2. . 1.) |COMMON-LISP|::|CONDITION|
+            |COMMON-LISP|::|SUBTYPEP| |COMMON-LISP|::|UNBOUND-VARIABLE|
+            |COMMON-LISP-USER|::|NAME| |COMMON-LISP-USER|::|OBJ-NAME|
+            |COMMON-LISP-USER|::|UPDATE-FORM| "Error in update of Handler: "
+            |SYSTEM|::|STREAM-START-S-EXPRESSION|
+            |COMMON-LISP|::|*PRINT-RIGHT-MARGIN*|
+            |SYSTEM|::|STREAM-END-S-EXPRESSION|
+            "\n
+For object: "
+            "\n
+message: "
+            |COMMON-LISP-USER|::|UNI-REPORT-ERROR|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENVIRONMENT-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|145 146 (DEFUN VALID-MODEL (MODEL) ...)-3|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|VALID-MODEL| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|VALID-MODEL|
+       #25Y(00 00 00 00 01 00 00 00 26 02 9E 1F 0A 14 2E 00 14 38 06 32 77 19
+            02 19 02)
+       (|COMMON-LISP-USER|::|MP-MODELS|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP-USER|::|MODEL|) |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|148 152 (DEFGENERIC UPDATE-HANDLER (HANDLER ARG) ...)-4|
+   #120Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DA
+         6F 04 2D 03 05 6B 06 99 07 DA E2 AF E3 E4 E5 E6 E7 E8 E9 01 03 BA 6F
+         10 1B 24 AF 38 01 80 A9 03 14 AD 31 B8 16 02 1B 14 94 00 94 00 9E 5C
+         5C 78 76 00 7B 02 A1 21 63 9D FC FB 16 02 83 00 AC 8D 9F 66 16 01 9E
+         16 01 F8 EB 6B 12 ED BC EE DA 6E 03 15 F0 63 6E 03 17 F2 63 7B 06 33
+         02 23 9B 0B 02)
+   (|COMMON-LISP-USER|::|UPDATE-HANDLER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1| |CLOS|::|DEFGENERIC| |SYSTEM|::|FBOUND-STRING|
+    |SYSTEM|::|CHECK-REDEFINITION| |CLOS|::|<STANDARD-GENERIC-FUNCTION>|
+    |CLOS|::|ENSURE-GENERIC-FUNCTION| :|GENERIC-FUNCTION-CLASS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|)
+    :|ARGUMENT-PRECEDENCE-ORDER|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|) :|DOCUMENTATION|
+    "The method called when an environment \n
+                    item needs to be updated.  The arg\n
+                    is the argument passed to the hook function\n
+                    if there is such an argument."
+    |CLOS|::|METHODS| |CLOS|::|CLASS-DEFAULT-INITARGS| :|METHOD-CLASS|
+    |CLOS|::|<STANDARD-METHOD>| :|METHOD-COMBINATION| :|NAME|
+    |CLOS|::|MAKE-GENERIC-FUNCTION-PROTOTYPE| |CLOS|::|STANDARD|
+    |CLOS|::|FIND-METHOD-COMBINATION| :|DECLARATIONS|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|154 175 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-5|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|UPDATE-HANDLER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|154 175 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-5-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|154 175 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-5-1-1|
+           #298Y(05 00 02 00 02 00 00 00 20 03 AE 6F 00 92 00 02 2E 01 F8 AF 89
+                 02 05 AC 88 03 80 CC AF 88 02 80 EC AF AF 30 0C 42 02 9D 1F 80
+                 FD AD B2 30 0D B1 2F 0E 9E 19 06 6B 04 DF AD E0 32 43 16 01 1D
+                 0F 6B 04 DF AD E0 81 43 00 E2 AD E3 32 43 16 01 14 6B 04 DF AD
+                 E0 81 43 00 AF E2 B0 E4 72 43 38 01 71 6E E2 AE E3 AF 32 44 16
+                 02 6B 04 DF AD E0 81 43 00 E2 AD E5 72 43 72 B1 E2 AE E5 AF 32
+                 44 16 02 53 2B 53 14 B5 B5 30 0C 42 02 9D 1F 08 AD B8 30 0D B7
+                 2F 0E 9E 16 02 54 6B 04 DF AD E0 81 43 00 E2 AD E3 67 00 00 02
+                 32 44 16 01 55 54 6B 04 DF AD E0 81 43 00 E2 AD E5 72 43 72 B2
+                 E2 AE E5 AF 32 44 16 02 55 19 06 AD 88 07 FF 68 6B 0F EA 2E 11
+                 1D 09 2E 12 14 72 62 ED 33 01 32 14 2E 01 14 EE B2 2D 06 15 19
+                 05 6B 04 DF AD E0 81 43 00 92 00 55 6B 0F F0 2E 11 1D 09 2E 12
+                 14 72 62 ED 33 01 32 14 2E 01 14 F1 2D 05 15 19 05 6B 0F F2 2E
+                 11 1D 09 2E 12 14 72 62 ED 33 01 32 14 2E 01 14 F3 B1 2D 06 15
+                 19 04 19 06)
+           (|COMMON-LISP-USER|::|HANDLER-MODEL|
+            |COMMON-LISP-USER|::|CURRENT-MODEL| |COMMON-LISP-USER|::|USE-MODEL|
+            |COMMON-LISP-USER|::|VALID-MODEL|
+            |COMMON-LISP-USER|::|*META-PROCESSES*|
+            |COMMON-LISP-USER|::|META-PROCESSES| 3.
+            |COMMON-LISP-USER|::|VALID-MODEL-NAME|
+            |COMMON-LISP-USER|::|META-PROCESS| 6. 5. 30.
+            |COMMON-LISP-USER|::|SAFE-UPDATE-EVALUATION|
+            #.(|SYSTEM|::|GET-SETF-SYMBOL| '|COMMON-LISP-USER|::|UPDATE-VALUE|)
+            |COMMON-LISP-USER|::|SEND-UPDATE| |COMMON-LISP|::|*ERROR-OUTPUT*|
+            #Y(#:|154 175 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-5-1-1-1|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            |COMMON-LISP-USER|::|CURRENT-MP-FCT|
+            |COMMON-LISP-USER|::|MP-MODELS| 1.
+            "~S does not name a model in the current meta-process"
+            |COMMON-LISP|::|FORMAT|
+            #Y(#:|154 175 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-5-1-1-2|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "No actions taken in with-model because there is no current meta-process"
+            #Y(#:|154 175 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-5-1-1-3|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "Environment trying to use model ~s which no longer exists.")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|SIMPLE-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|177 205 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-6|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|UPDATE-HANDLER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|177 205 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-6-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|177 205 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-6-1-1|
+           #412Y(05 00 02 00 02 00 00 00 20 03 AE 6F 00 92 00 02 2E 01 F8 AF 89
+                 02 05 AC 88 03 81 11 AF 88 02 81 31 AF AF 30 0C 42 02 9D 1F 81
+                 6F 93 01 05 14 8E 1D 81 3B 03 1F 14 AC B3 30 12 16 01 B1 2F 13
+                 9E 19 06 38 02 72 8F AE 1B 14 AD 2F 0D 10 0E 94 03 83 04 B1 31
+                 8D 11 AD 2F 0F EA AE 31 94 AC 8D 9F 68 16 01 AC 81 90 00 38 02
+                 31 4E 1B 80 62 6B 04 DF AD E0 32 43 16 01 1D 0F 6B 04 DF AD E0
+                 81 43 00 E2 AD E3 32 43 16 01 14 6B 04 DF AD E0 81 43 00 AF E2
+                 B0 E4 72 43 38 01 71 6E E2 AE E3 AF 32 44 16 02 6B 04 DF AD E0
+                 81 43 00 E2 AD E5 72 43 72 B1 E2 AE E5 AF 32 44 16 02 53 37 53
+                 20 B5 B5 30 0C 42 02 9D 1F 14 93 01 05 14 8E 1D FF 73 D6 14 AC
+                 B9 30 12 16 01 B7 2F 13 9E 16 02 54 6B 04 DF AD E0 81 43 00 E2
+                 AD E3 67 00 00 02 32 44 16 01 55 54 6B 04 DF AD E0 81 43 00 E2
+                 AD E5 72 43 72 B2 E2 AE E5 AF 32 44 16 02 55 19 06 AD 88 07 FF
+                 5C 6B 14 EF 2E 16 1D 09 2E 17 14 72 62 F2 33 01 32 14 2E 01 14
+                 F3 B2 2D 06 1A 19 05 6B 04 DF AD E0 81 43 00 92 00 55 6B 14 F5
+                 2E 16 1D 09 2E 17 14 72 62 F2 33 01 32 14 2E 01 14 F6 2D 05 1A
+                 19 05 6B 14 F7 2E 16 1D 09 2E 17 14 72 62 F2 33 01 32 14 2E 01
+                 14 65 1E B1 2D 06 1A 19 04 38 02 72 8F AE 1B 14 AD 2F 0D 10 0E
+                 94 03 83 04 B1 31 8D 11 AD 2F 0F EA AE 31 94 AC 8D 9F 68 16 01
+                 AC 81 90 00 38 02 31 4E 1B FE 9B 19 06)
+           (|COMMON-LISP-USER|::|HANDLER-MODEL|
+            |COMMON-LISP-USER|::|CURRENT-MODEL| |COMMON-LISP-USER|::|USE-MODEL|
+            |COMMON-LISP-USER|::|VALID-MODEL|
+            |COMMON-LISP-USER|::|*META-PROCESSES*|
+            |COMMON-LISP-USER|::|META-PROCESSES| 3.
+            |COMMON-LISP-USER|::|VALID-MODEL-NAME|
+            |COMMON-LISP-USER|::|META-PROCESS| 6. 5. 30.
+            |COMMON-LISP-USER|::|SAFE-UPDATE-EVALUATION|
+            |SYSTEM|::|STREAM-START-S-EXPRESSION|
+            |COMMON-LISP|::|*PRINT-RIGHT-MARGIN*|
+            |SYSTEM|::|STREAM-END-S-EXPRESSION| #\Space "EMPTY_ENV_STRING"
+            #.(|SYSTEM|::|GET-SETF-SYMBOL| '|COMMON-LISP-USER|::|UPDATE-VALUE|)
+            |COMMON-LISP-USER|::|SEND-UPDATE| |COMMON-LISP|::|*ERROR-OUTPUT*|
+            #Y(#:|177 205 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-6-1-1-1|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            |COMMON-LISP-USER|::|CURRENT-MP-FCT|
+            |COMMON-LISP-USER|::|MP-MODELS| 1.
+            "~S does not name a model in the current meta-process"
+            |COMMON-LISP|::|FORMAT|
+            #Y(#:|177 205 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-6-1-1-2|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "No actions taken in with-model because there is no current meta-process"
+            #Y(#:|177 205 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-6-1-1-3|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "Environment trying to use model ~s which no longer exists."
+            "EMPTY_ENV_STRING")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|LIST-HANDLER| |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|207 236 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-7|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|UPDATE-HANDLER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|207 236 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-7-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|207 236 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-7-1-1|
+           #483Y(05 00 02 00 02 00 00 00 20 03 AE 6F 00 92 00 02 2E 01 F8 AF 89
+                 02 05 AC 88 03 81 34 AF 88 02 81 54 AF AF 30 0C 42 02 9D 1F 81
+                 B6 93 01 05 14 8E 1D 81 5F 03 20 14 AC B3 30 13 16 01 B1 2F 14
+                 9E 19 06 E7 38 02 72 8F 94 03 AD 2F 0E 10 0F AF B1 31 8D 11 AD
+                 2F 10 EB AE 31 94 16 01 AC 81 90 00 38 02 71 4E 38 02 72 8F 95
+                 04 AC 1B 14 AE 2F 0E 10 0F 94 03 83 04 B2 31 8D 11 AE 2F 10 EB
+                 AF 31 94 AC 8D 9F 68 16 02 AC 81 90 00 33 02 26 1B 80 62 6B 04
+                 DF AD E0 32 43 16 01 1D 0F 6B 04 DF AD E0 81 43 00 E2 AD E3 32
+                 43 16 01 14 6B 04 DF AD E0 81 43 00 AF E2 B0 E4 72 43 38 01 71
+                 6E E2 AE E3 AF 32 44 16 02 6B 04 DF AD E0 81 43 00 E2 AD E5 72
+                 43 72 B1 E2 AE E5 AF 32 44 16 02 53 37 53 20 B5 B5 30 0C 42 02
+                 9D 1F 14 93 01 05 14 8E 1D FF 50 D7 14 AC B9 30 13 16 01 B7 2F
+                 14 9E 16 02 54 6B 04 DF AD E0 81 43 00 E2 AD E3 67 00 00 02 32
+                 44 16 01 55 54 6B 04 DF AD E0 81 43 00 E2 AD E5 72 43 72 B2 E2
+                 AE E5 AF 32 44 16 02 55 19 06 AD 88 07 FF 5C 6B 15 F0 2E 17 1D
+                 09 2E 18 14 72 62 F3 33 01 32 14 2E 01 14 F4 B2 2D 06 1B 19 05
+                 6B 04 DF AD E0 81 43 00 92 00 55 6B 15 F6 2E 17 1D 09 2E 18 14
+                 72 62 F3 33 01 32 14 2E 01 14 F7 2D 05 1B 19 05 6B 15 65 1E 2E
+                 17 1D 09 2E 18 14 72 62 F3 33 01 32 14 2E 01 14 65 1F B1 2D 06
+                 1B 19 04 E7 38 02 72 8F 94 03 AD 2F 0E 10 0F AF B1 31 8D 11 AD
+                 2F 10 EB AE 31 94 16 01 AC 81 90 00 38 02 71 4E 38 02 72 8F 95
+                 04 AC 1B 14 AE 2F 0E 10 0F 94 03 83 04 B2 31 8D 11 AE 2F 10 EB
+                 AF 31 94 AC 8D 9F 68 16 02 AC 81 90 00 33 02 26 1B FE 54 19
+                 06)
+           (|COMMON-LISP-USER|::|HANDLER-MODEL|
+            |COMMON-LISP-USER|::|CURRENT-MODEL| |COMMON-LISP-USER|::|USE-MODEL|
+            |COMMON-LISP-USER|::|VALID-MODEL|
+            |COMMON-LISP-USER|::|*META-PROCESSES*|
+            |COMMON-LISP-USER|::|META-PROCESSES| 3.
+            |COMMON-LISP-USER|::|VALID-MODEL-NAME|
+            |COMMON-LISP-USER|::|META-PROCESS| 6. 5. 30.
+            |COMMON-LISP-USER|::|SAFE-UPDATE-EVALUATION|
+            |COMMON-LISP|::|STRING| |SYSTEM|::|STREAM-START-S-EXPRESSION|
+            |COMMON-LISP|::|*PRINT-RIGHT-MARGIN*|
+            |SYSTEM|::|STREAM-END-S-EXPRESSION| #\Space "EMPTY_ENV_STRING"
+            #.(|SYSTEM|::|GET-SETF-SYMBOL| '|COMMON-LISP-USER|::|UPDATE-VALUE|)
+            |COMMON-LISP-USER|::|SEND-UPDATE| |COMMON-LISP|::|*ERROR-OUTPUT*|
+            #Y(#:|207 236 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-7-1-1-1|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            |COMMON-LISP-USER|::|CURRENT-MP-FCT|
+            |COMMON-LISP-USER|::|MP-MODELS| 1.
+            "~S does not name a model in the current meta-process"
+            |COMMON-LISP|::|FORMAT|
+            #Y(#:|207 236 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-7-1-1-2|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "No actions taken in with-model because there is no current meta-process"
+            #Y(#:|207 236 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-7-1-1-3|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "Environment trying to use model ~s which no longer exists."
+            "EMPTY_ENV_STRING")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENV-WINDOW-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|UPDATE-HANDLER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1|
+           #946Y(09 00 04 00 02 00 00 00 20 03 AE 6F 00 92 00 02 2E 01 F8 AF 89
+                 02 82 51 AC 89 03 82 4C 6B 04 DF AD E0 81 43 00 93 00 81 D4 AD
+                 89 07 81 B2 6B 04 DF AD E0 32 43 16 01 1D 0F 6B 04 DF AD E0 81
+                 43 00 E2 AD E3 32 43 16 01 14 6B 04 DF AD E0 81 43 00 AF E2 B0
+                 E4 72 43 38 01 71 6E E2 AE E3 AF 32 44 16 02 6B 04 DF AD E0 81
+                 43 00 E2 AD E5 72 43 72 B1 E2 AE E5 AF 32 44 16 02 53 81 49 53
+                 81 31 38 02 72 8F 53 81 1A 9F 10 0C E7 B2 7B 02 6B 04 DF AD E0
+                 32 43 16 01 1D 35 6B 04 DF AD E0 81 43 00 E2 AD E3 32 43 16 01
+                 1D 3B AC 72 62 8F AF 80 6B 6B 0E F1 2E 10 1D 09 2E 11 14 72 62
+                 EC 33 01 32 14 2E 01 14 03 18 14 2D 05 14 1B 80 CF 6B 0E E9 2E
+                 10 1D 09 2E 11 14 72 62 EC 33 01 32 14 2E 01 14 D8 1B 62 6B 0E
+                 EF 2E 10 1D 09 2E 11 14 72 62 EC 33 01 32 14 2E 01 14 03 16 1B
+                 4A 6B 0E F4 2E 10 1D 09 2E 11 14 72 62 EC 33 01 32 14 2E 01 14
+                 F5 B2 2D 06 14 00 16 04 1B 80 81 01 02 93 02 26 94 02 83 03 94
+                 03 83 04 AD 89 19 50 AD AE 7B 01 63 30 1C 5B 7A 84 03 AE AE 9F
+                 7A 7B 01 82 02 24 02 16 02 92 02 5A 53 3A AE 63 1B 0A 87 01 00
+                 78 95 01 30 1D 83 01 AD 8D 9F 72 16 02 C0 C0 30 1E 42 02 9D 1F
+                 1A B8 72 90 AC C4 30 1F 16 01 C2 6F 20 72 62 8F AC 05 65 21 C3
+                 30 1F C2 2F 22 9E 16 02 54 67 00 00 01 63 1B 0A 87 01 00 78 95
+                 01 30 1D 83 01 AD 8D 9F 72 16 02 55 16 02 16 01 11 54 67 00 00
+                 00 31 9A 67 00 00 00 2F 23 55 16 01 54 6B 04 DF AD E0 81 43 00
+                 E2 AD E3 67 00 00 02 32 44 16 01 55 54 6B 04 DF AD E0 81 43 00
+                 E2 AD E5 72 43 72 B2 E2 AE E5 AF 32 44 16 02 55 19 06 6B 0E 65
+                 24 2E 10 1D 09 2E 11 14 72 62 EC 33 01 32 14 2E 01 14 65 25 B2
+                 2D 06 14 19 05 6B 0E 65 26 2E 10 1D 09 2E 11 14 72 62 EC 33 01
+                 32 14 2E 01 14 65 27 2D 05 14 19 05 6B 0E 65 28 2E 10 1D 09 2E
+                 11 14 72 62 EC 33 01 32 14 2E 01 14 65 29 B1 2D 06 14 19 04 6B
+                 0E 65 2A 2E 10 1D 09 2E 11 14 72 62 EC 33 01 32 14 2E 01 14 D8
+                 1B 80 6D 6B 0E 65 2B 2E 10 1D 09 2E 11 14 72 62 EC 33 01 32 14
+                 2E 01 14 03 16 1B 80 53 AF 88 02 FF AB 38 02 72 8F AD 89 03 81
+                 00 53 80 EE 9F 10 0C E7 B2 7B 02 6B 04 DF AD E0 32 43 16 01 1D
+                 FF A9 6B 04 DF AD E0 81 43 00 E2 AD E3 32 43 16 01 1D FF B0 AC
+                 72 62 8F AF 3E 6B 0E 65 2C 2E 10 1D 09 2E 11 14 72 62 EC 33 01
+                 32 14 2E 01 14 03 18 14 2D 05 14 1B 80 A1 6B 0E 65 2D 2E 10 1D
+                 09 2E 11 14 72 62 EC 33 01 32 14 2E 01 14 F5 B2 2D 06 14 00 16
+                 04 1B 80 81 01 02 93 02 26 94 02 83 03 94 03 83 04 AD 89 19 4F
+                 AD AE 7B 01 63 30 1C 5B 7A 84 03 AE AE 9F 7A 7B 01 82 02 24 02
+                 16 02 92 02 5A 53 3A AE 63 1B 0A 87 01 00 78 95 01 30 1D 83 01
+                 AD 8D 9F 72 16 02 BA BA 30 1E 42 02 9D 1F 1A B8 72 90 AC BE 30
+                 1F 16 01 BC 6F 20 72 62 8F AC 05 65 2E BD 30 1F BC 2F 22 9E 16
+                 02 54 67 00 00 01 63 1B 0A 87 01 00 78 95 01 30 1D 83 01 AD 8D
+                 9F 72 16 02 55 16 02 16 01 11 54 67 00 00 00 31 9A 67 00 00 00
+                 2F 23 55 19 05 53 2A 9F 10 0C B5 B5 30 1E 42 02 9D 1F 1A B3 72
+                 90 AC B9 30 1F 16 01 B7 6F 20 72 62 8F AC 05 65 2F B8 30 1F B7
+                 2F 22 9E 16 02 11 54 67 00 00 00 31 9A 67 00 00 00 2F 23 55 19
+                 05)
+           (|COMMON-LISP-USER|::|HANDLER-MODEL|
+            |COMMON-LISP-USER|::|CURRENT-MODEL| |COMMON-LISP-USER|::|USE-MODEL|
+            |COMMON-LISP-USER|::|VALID-MODEL|
+            |COMMON-LISP-USER|::|*META-PROCESSES*|
+            |COMMON-LISP-USER|::|META-PROCESSES| 3.
+            |COMMON-LISP-USER|::|VALID-MODEL-NAME|
+            |COMMON-LISP-USER|::|META-PROCESS| 6. 5. 30.
+            |COMMON-LISP|::|*STANDARD-OUTPUT*| :|CMDT|
+            |COMMON-LISP|::|*ERROR-OUTPUT*|
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-1|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            |COMMON-LISP-USER|::|CURRENT-MP-FCT|
+            |COMMON-LISP-USER|::|MP-MODELS| 1.
+            "with-parameters called with no current meta-process."
+            |COMMON-LISP|::|FORMAT|
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-2|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "with-parameters called with no current model."
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-3|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "Odd length parameters list in call to with-parameters. The body is ignored."
+            |COMMON-LISP-USER|::|VALID-PARAMETER-NAME|
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-4|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "~s is not the name of a parameter. with-parameters body ignored."
+            |COMMON-LISP-USER|::|GET-PARAMETERS|
+            |COMMON-LISP-USER|::|TEST-AND-SET-PARAMETER-VALUE|
+            |COMMON-LISP-USER|::|SAFE-UPDATE-EVALUATION|
+            #.(|SYSTEM|::|GET-SETF-SYMBOL| '|COMMON-LISP-USER|::|UPDATE-VALUE|)
+            |COMMON-LISP-USER|::|UPDATE-VALUE| "EMPTY_ENV_STRING"
+            |COMMON-LISP-USER|::|SEND-UPDATE| |COMMON-LISP|::|CLOSE|
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-5|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "~S does not name a model in the current meta-process"
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-6|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "No actions taken in with-model because there is no current meta-process"
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-7|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "Environment trying to use model ~s which no longer exists."
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-8|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-9|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-10|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            #Y(#:|239 296 (DEFMETHOD UPDATE-HANDLER (# ARG) ...)-8-1-1-11|
+               #79Y(00 00 00 00 02 00 00 00 21 18 AF 31 98 DA B0 38 02 31 95 93
+                    02 1F 9E 5B 1C 22 83 01 DE B0 38 02 31 95 AF 94 02 83 03 AF
+                    2D 03 05 F9 E0 B0 38 02 31 95 9E 19 04 DB AE 80 A8 01 1B 60
+                    DC B0 38 02 31 95 94 01 83 02 B0 31 90 DD B0 31 94 1B 4D)
+               ("#|Warning" 1. " (in model " #\) ": "
+                |SYSTEM|::|DO-FORMAT-INDIRECTION| " |#\n")
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            "EMPTY_ENV_STRING" "EMPTY_ENV_STRING")
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|ARG|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|OUTPUT-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|299 310 (DEFMETHOD DELETE-HANDLER (# CONNECTION) ...)-9|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|DELETE-HANDLER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|299 310 (DEFMETHOD DELETE-HANDLER (# CONNECTION) ...)-9-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|299 310 (DEFMETHOD DELETE-HANDLER (# CONNECTION) ...)-9-1-1|
+           #95Y(00 00 00 00 02 00 00 00 20 03 00 2B 02 7F 03 00 00 7F 02 00 01
+                68 00 00 6F 00 68 01 01 DB AD DC 81 43 00 31 70 AC 6D 03 01 68
+                01 01 DB AD DE 81 43 00 31 71 6B 05 68 01 00 6B 05 E0 AD E1 81
+                43 00 38 07 72 69 E0 AE E1 AF 32 44 16 02 68 00 00 6F 00 38 01
+                31 E5 68 00 00 63 AD 30 08 19 05)
+           (|COMMON-LISP-USER|::|NAME|
+            |COMMON-LISP-USER|::|ENVIRONMENT-CONNECTION| 4.
+            #Y(#:|299 310 (DEFMETHOD DELETE-HANDLER (# CONNECTION) ...)-9-1-1-1|
+               #34Y(00 00 00 00 02 00 00 00 20 03 69 00 02 DB AD DC 81 43 00 69
+                    00 01 AF 38 07 72 69 B0 AE AE 31 6F 19 05)
+               (|COMMON-LISP|::|NIL|
+                |COMMON-LISP-USER|::|ENVIRONMENT-CONNECTION| 5.)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            5. |COMMON-LISP-USER|::|*ENVIRONMENT-CONTROL*|
+            |COMMON-LISP-USER|::|ENVIRONMENT-CONTROL| 8.
+            #.(|SYSTEM|::|GET-SETF-SYMBOL| '|COMMON-LISP-USER|::|NAME|))
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|CONNECTION|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENVIRONMENT-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|312 321 (DEFMETHOD SEND-UPDATE (#) ...)-10|
+   #43Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 7B 01 7B 08 2D 03 0B 19 01)
+   (|COMMON-LISP-USER|::|SEND-UPDATE| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|312 321 (DEFMETHOD SEND-UPDATE (#) ...)-10-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|312 321 (DEFMETHOD SEND-UPDATE (#) ...)-10-1-1|
+           #64Y(00 00 00 00 01 00 00 00 20 02 C5 10 01 B0 38 02 72 8F B2 6F 02
+                B3 6F 03 B4 6F 04 DF B0 38 02 31 95 AE B0 31 90 E0 B0 31 94 AD
+                B0 31 90 E0 B0 31 94 AC B0 31 90 16 03 AC 81 90 00 30 07 11 19
+                02)
+           (:|DOWNCASE| |COMMON-LISP|::|*PRINT-CASE*|
+            |COMMON-LISP-USER|::|UPDATE-TYPE| |COMMON-LISP-USER|::|TARGET-NAME|
+            |COMMON-LISP-USER|::|UPDATE-VALUE| "update " #\Space
+            |COMMON-LISP-USER|::|SEND-ENVIRONMENT-MESSAGE|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST| (|COMMON-LISP-USER|::|HANDLER|)
+    |CLOS|::|SIGNATURE|
+    #(1. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENVIRONMENT-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|322 330 (DEFMETHOD SEND-REGISTER (#) ...)-11|
+   #43Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 7B 01 7B 08 2D 03 0B 19 01)
+   (|COMMON-LISP-USER|::|SEND-REGISTER| |SYSTEM|::|TRACED-DEFINITION|
+    |SYSTEM|::|UNTRACE1|
+    #Y(#:|322 330 (DEFMETHOD SEND-REGISTER (#) ...)-11-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|322 330 (DEFMETHOD SEND-REGISTER (#) ...)-11-1-1|
+           #53Y(00 00 00 00 01 00 00 00 20 02 C5 10 01 B0 38 02 72 8F B2 6F 02
+                B3 6F 03 DE AF 38 02 31 95 AD AF 31 90 DF AF 31 94 AC AF 31 90
+                16 02 AC 81 90 00 30 06 11 19 02)
+           (:|DOWNCASE| |COMMON-LISP|::|*PRINT-CASE*|
+            |COMMON-LISP-USER|::|OBJ-NAME| |COMMON-LISP-USER|::|NAME|
+            "register " #\Space |COMMON-LISP-USER|::|SEND-ENVIRONMENT-MESSAGE|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST| (|COMMON-LISP-USER|::|HANDLER|)
+    |CLOS|::|SIGNATURE|
+    #(1. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENVIRONMENT-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|334 349 (DEFMETHOD SEND-ENVIRONMENT-MESSAGE (# MESSAGE) ...)-12|
+   #48Y(00 00 00 00 00 00 00 00 20 01 DA DB 38 01 8F 9E 03 DA 2F 02 DA DD DE 63
+        DF E0 E1 E2 E3 E4 38 02 72 3A 64 38 02 72 3A 7B 02 7B 08 2D 03 0B 19
+        01)
+   (|COMMON-LISP-USER|::|SEND-ENVIRONMENT-MESSAGE|
+    |SYSTEM|::|TRACED-DEFINITION| |SYSTEM|::|UNTRACE1|
+    #Y(#:|334 349 (DEFMETHOD SEND-ENVIRONMENT-MESSAGE (# MESSAGE) ...)-12-1|
+       #15Y(00 00 00 00 01 00 00 00 20 02 DA C6 5D 19 02)
+       (#Y(#:|334 349 (DEFMETHOD SEND-ENVIRONMENT-MESSAGE (# MESSAGE) ...)-12-1-1|
+           #126Y(03 00 01 00 02 00 00 00 20 03 00 2B 02 7F 03 00 00 7F 02 00 01
+                 47 00 10 AE 6D 01 01 B0 6D 02 01 57 03 B0 36 00 16 06 48 42 02
+                 AC 72 38 DE 30 05 1F 80 49 AC 38 02 72 8F 68 04 00 6F 06 68 05
+                 01 AE 2F 07 10 08 B0 B2 31 8D 11 AE 2F 09 E4 AF 38 02 31 95 AE
+                 2F 07 10 08 AF B2 31 8D 11 AE 2F 09 AE 31 97 16 02 AC 81 90 00
+                 30 0B 19 06 58 67 00 00 01 76 00 AD 36 01 18 03 01 19 02 19
+                 06)
+           (|COMMON-LISP|::|NIL|
+            #Y(#:|334 349 (DEFMETHOD SEND-ENVIRONMENT-MESSAGE (# MESSAGE) ...)-12-1-1-1|
+               #16Y(00 00 00 00 00 00 00 00 20 01 DA 2C 01 01 19 01)
+               (|COMMON-LISP|::|NIL|
+                #Y(#:|334 349 (DEFMETHOD SEND-ENVIRONMENT-MESSAGE (# MESSAGE) ...)-12-1-1-1-1|
+                   #16Y(00 00 00 00 01 00 00 00 20 02 63 AE 40 02 49 00)
+                   (|COMMON-LISP|::|NIL|)
+                   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)))
+               (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+            #Y(#:|334 349 (DEFMETHOD SEND-ENVIRONMENT-MESSAGE (# MESSAGE) ...)-12-1-1-2|
+               #42Y(00 00 00 00 00 00 00 00 20 01 69 00 01 6F 01 38 02 72 8F 69
+                    00 02 AC AE 31 90 DC AE 38 02 31 95 16 01 AC 81 90 00 30 03
+                    19 01)
+               (|COMMON-LISP|::|NIL| |COMMON-LISP-USER|::|SOCKET| "<end>\n"
+                |COMMON-LISP-USER|::|UNI-SEND-STRING|)
+               (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+            (#(|COMMON-LISP|::|ERROR| 99.) 2. . 1.) |COMMON-LISP|::|CONDITION|
+            |COMMON-LISP|::|SUBTYPEP| |COMMON-LISP-USER|::|NAME|
+            |SYSTEM|::|STREAM-START-S-EXPRESSION|
+            |COMMON-LISP|::|*PRINT-RIGHT-MARGIN*|
+            |SYSTEM|::|STREAM-END-S-EXPRESSION|
+            " Failed while sending message:\n"
+            |COMMON-LISP-USER|::|UNI-REPORT-ERROR|)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+        (|COMMON-LISP|::|T|))
+       (|COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|))
+    :|QUALIFIERS| :|LAMBDA-LIST|
+    (|COMMON-LISP-USER|::|HANDLER| |COMMON-LISP-USER|::|MESSAGE|)
+    |CLOS|::|SIGNATURE|
+    #(2. 0. |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|
+      |COMMON-LISP|::|NIL|)
+    :|SPECIALIZERS| |COMMON-LISP-USER|::|ENVIRONMENT-HANDLER|
+    |CLOS|::|DO-DEFMETHOD|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))

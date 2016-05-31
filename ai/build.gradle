@@ -1,0 +1,26 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":api")
+    compile project(":gameEngine")
+    compile project(":spring")
+    testCompile project(":gameEngine")
+    compile project(":gameEngine")
+    compile 'commons-io:commons-io:2.4'
+}
+
+task zipKI3Data(type: Zip) {
+    from "src/main/resources/ki3"
+    archiveName = 'ki3.zip'
+    destinationDir file("src/main/resources")
+}
+
+build.dependsOn zipKI3Data
+compileJava.dependsOn zipKI3Data

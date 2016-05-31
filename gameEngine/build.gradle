@@ -1,0 +1,14 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile project(":api")
+    compile project(":spring")
+    compile 'org.apache.commons:commons-lang3:3.0'
+}

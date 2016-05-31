@@ -1,0 +1,333 @@
+(sgp :paramname1 param1 ... :paramnamen paramn)
+
+-> Setzt globale ACT-R-Parameter
+
+(clear-all)
+
+-> Ausführen, um ACT-R zu resetten
+
+(goal-fokus chunkname)
+
+-> Lädt einen Chunk aus dem dm in den Zielbuffer
+
+
+-----------
+|Chunk-Typ|
+-----------
+
+chunk-type type slot1 slot2 ... slotn
+
+- optional
+- chunk-typ-name kann später über ISA geprüft werden
+
+
+------------------------
+|Produktion (allgemein)|
+------------------------
+
+Slot-Anweisungen:
+   modifier slotname value
+
+-> modifier optional (z.B. "-" für negation)
+-> modifiers:
+	=	Gleichheit (implizit)
+	-	Negation
+	<	kleiner (nur bei Zahlen)
+	<=	kleiner (nur bei Zahlen)
+	>	kleiner (nur bei Zahlen)
+	>=	kleiner (nur bei Zahlen)
+-> value-Datentypen:
+	""	String
+	0	Zahl
+	test	Chunk (neuer mit diesem Namen wird angelegt, wenn nicht bereits vorhanden)
+	(test ISA todo ...) Chunk mit eigenen Slots
+	
+
+Buffer leeren (implizit oder explizit) -> Chunk kommt ins dm
+
+
+-------------------
+|Produktion (Kopf)|
+-------------------
+
+P/P* name "optional documentation string"
+
+-> name verpflichtend und muss eindeutig sein
+-> dokumentation optional
+
+
+--------------------
+|Produktion (links)|
+--------------------
+
+Chunk prüfen
+------------
+
+=buffer>
+
+-> Chunk in buffer wird geprüft
+-> in buffer muss ein Chunk sein
+-> Variable "buffer" kann verwendet werden, z.B.
+-> buffer wird nach Produktion geleert, wenn nicht rechts verwendet! ("strict-harvesting")
+
+=buffer>
+    ISA type
+
+-> optional; Interpreter prüft auf Chunk-Typ (keine Abfrage!)
+
+=buffer>
+    slot1 =value
+
+-> slot1 muss da sein
+-> Variable "value" kann verwendet werden
+
+=buffer1>
+    slot1 =value
+=buffer2>
+    slot2 =value
+
+-> Gleichheit von slots
+
+=buffer1>
+    slot1 =value
+=buffer2>
+  - slot2 =value
+
+-> Ungleichheit von slots
+
+=buffer>
+    slot1 value
+
+-> slot1 muss value haben
+
+=buffer>
+    slot1 nil
+
+-> slot1 darf nicht da sein
+
+=buffer>
+    - slot1 nil
+
+-> slot1 muss da sein
+
+Buffer/ Modul abfragen
+----------------------
+
+?buffer>
+    [query] value
+
+-> buffer oder Modul des buffers wird mit query geprüft
+-> [query] bezeichnet Buffer-Eigenschaft oder Modul-Eigenschaft
+-> value bezeichnet Wert, den Eigenschaft haben muss
+
+generelle Buffer-Eigenschaften:
+
+buffer: 
+ full 		Chunk in buffer
+ empty		buffer leer, kein failure
+ failure	buffer leer, failure (z.B. nichts passendes in dm gefunden)
+ requested	Chunk in buffer oder buffer leer, failure durch +> request
+ unrequested	Chunk in buffer oder buffer leer, failure durch automatischen request
+
+
+generelle Modul-Eigenschaften:
+
+state:
+ free		Modul macht gerade nichts
+ busy		Modul macht gerade etwas
+ error		Error beim Ausführen des letzten requests
+
+
+---------------------
+|Produktion (rechts)|
+---------------------
+
+Slots zuweisen/ neu hinzufügen
+------------------------------
+
+=buffer>
+
+-> Verhindert automatisches leeren
+
+=buffer>
+    slot1 =value
+
+-> weist slot1 wert von value zu (value kann auch ganzer Chunk in einem Buffer sein!)
+-> wenn slot1 nicht vorhanden, füge slot1 hinzu
+
+=buffer>
+    slot1 value
+
+-> weist slot1 value zu
+-> wenn slot1 nicht vorhanden, füge slot1 hinzu
+
+Chunkslots direkt in Buffer schreiben
+-------------------------------------
+
+=buffer> chunkname
+=buffer> =value
+
+-> Chunk im buffer wird um Slots von =value erweitert/ entspr. Slots werden überschrieben
+
+Buffer leeren
+-------------
+
+-buffer>
+
+-> leert Buffer, schreibt Chunk ins dm
+
+Buffer leeren und request stellen
+---------------------------------
+
++buffer>
+
+-> leert zunächst Buffer, schreibt Chunk ins dm
+-> request an buffer; Optionen abhängig von Buffer und Modul (siehe Abschnitt weiter unten zu Buffern)
+
++buffer>
+    :paramname param
+
+-> ":" kennzeichnet Parameter für request; kein Slot!
+-> buffer-spezifisch
+
+Modul "declarative":
+
+recently-received:
+ t		suche nur Chunks, die kürzlich erst geladen wurden
+ f		suche nur Chunks, die nicht kürzlich erst geladen wurden
+
+
+Buffer leeren und Chunk direkt reinladen
+----------------------------------------
+
++buffer> chunkname
++buffer> =value
+
+-> Request um, sofern im dm oder in anderen Buffern vorhanden, den Chunk mit angegebenen Namen
+   in den Buffer zu laden
+
+Auswertungsreihenfolge
+----------------------
+
+=>
+->
++>
+!!
+
+
+----------------------------------------
+|Dynamische Produktionen (beide Seiten)|
+----------------------------------------
+
+(P* name "description"
+  ...
+==>
+  ...
+)
+
+Variable Slotnamen
+------------------
+
+slot =slot1
+
+=slot1 50
+
+-> Slotnamenvariablen brauchen eine Wurzel, d.h. ein
+   =slot1 50
+   also "finde den Slot mit Wert 50"
+   funktioniert nicht
+-> nur eine Ebene der Indirektion! Folgendes geht nicht:
+   slot =slot1
+   =slot =slot2
+   =slot2 50
+
+Chunktypen erweitern
+--------------------
+
+(P* modify-buffer
+   =goal>
+      ISA  type
+      slot =slot
+==>
+   =goal>
+      =slot new-value
+)
+
+-> Wichtig hier: ISA
+-> Wenn slot den Wert eines bereits vorhandenen Slotnamens in type hat,
+   passiert nichts besonderes
+-> Ansonsten wird nicht nur ein neuer Slot dem Chunk hinzugefügt,
+   sondern auch die Definition vom Chunk-Typ type erweitert(!)
+
+---------------------------------
+|Funktionsaufrufe (beide Seiten)|
+---------------------------------
+
+!eval! (func =param1 ... =paramn)
+
+-> Werte func aus; muss ungleich nil sein, damit Produktion schalten kann
+
+!bind! =var1 (func =param1 ... =paramn)
+
+-> Funktioniert erstmal wie eval(!)
+-> Berechne Funktion, speichere Ergebnis in var1
+
+!output! value
+
+-> zur Ausgabe von value auf Kommandozeile
+
+!output! =value
+
+-> nur rechts!
+-> zur Ausgabe des Werts in value auf Kommandozeile
+
+!output! (val1 val2 =val3 val4 ...)
+
+-> nur rechts!
+-> Gibt der Reihe nach von links nach rechts alles aus
+
+!stop!
+
+-> Terminiert den derzeitigen Prozess
+
+--------
+|Buffer|
+--------
+
+goal
+----
+
+-> enthält typischerweise nächstes Ziel, typischerweise einen Chunk mit einem Slot "state"
+-> requests erzeugen neuen Chunk (kein Zeitverbrauch)
+
+imaginal
+--------
+
+-> enthält typischerweise Chunk mit Ausführungszustand
+-> requests erzeugen neuen Chunk (mit Zeitverbrauch)
+
+retrieval
+---------
+
+-> requests kopieren(!) Chunk aus dm, sofern es einen mit angegebenen Werten gibt (mit Zeitverbrauch)
+-> neuer Chunk ist NICHT der Chunk, der kopiert wurde und Änderungen betreffen lediglich die neue Kopie
+
+
+Requestparameter:
+ :recently-received
+ -> t, wenn nur nach Chunks gesucht werden soll, die erst kürzlich schon geladen wurden
+ -> nil, wenn nur nach Chunks gesucht werden soll, die erst kürzlich nicht schon geladen wurden
+
+
+goal:
+
+
+
+imaginal:
+
+
+
+retrieval:
+
+   (empty)
+

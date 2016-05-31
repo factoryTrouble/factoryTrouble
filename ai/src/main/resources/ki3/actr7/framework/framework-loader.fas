@@ -1,0 +1,11 @@
+(|SYSTEM|::|VERSION| '(20080430.))
+#0Y_ #0Y |CHARSET|::|UTF-8|
+#Y(#:|1 109 (SETF *FILE-LIST* '("version-string" "internal-structures" "internal-macros" ...))-1|
+   #15Y(00 00 00 00 00 00 00 00 20 01 C5 0F 01 19 01)
+   (("version-string" "internal-structures" "internal-macros" "misc-utils"
+     "system-parameters" "meta-process" "chunk-types" "chunks" "modules"
+     "parameters" "buffers" "model" "events" "scheduling" "chunk-spec"
+     "top-level" "device-interface" "vision-categorization" "random" "printing"
+     "naming-module")
+    |COMMON-LISP-USER|::|*FILE-LIST*|)
+   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))

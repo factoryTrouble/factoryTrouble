@@ -1,0 +1,12 @@
+be_so,be_we,ti,ti,ti,ho,ho,ti,ti,ti,ti,be_no_ex
+ti,be_so,be_we,ti,ti,ho,ho,ti,ti,ti,be_no_ex,be_we_ex
+ti,ti,be_so,be_we,ti,ti_wsoll,ti_wsoll,ti,ti,be_no_ex,be_we_ex,ti
+ti,ti,ti,be_so,be_we,ti,ti,ti,be_no_ex,be_we_ex,ti,ti
+ti,ti,ti,ti,be_so,be_we,ti,be_no_ex,be_we_ex,ti,ti,ti
+ho,ho,ti_wwe,ti,ti,be_no_ex,be_we_ex,be_we_ex,ti,ti_weal,ho,ho
+ho,ho,ti_wwe,ti,ti,be_no_ex,be_so,be_we,ti,ti_weal,ho,ho
+ti,ti,ti,ti,be_no_ex,be_we_ex,ti,be_so,be_we,ti,ti,ti
+ti,ti,ti,be_no_ex,be_we_ex,ti,ti,ti,be_so,be_we,ti,ti
+ti,ti,be_no_ex,be_we_ex,ti,ti_wno,ti_wno,ti,ti,be_so,be_we,ti
+ti,be_no_ex,be_we_ex,ti,ti,ho,ho,ti,ti,ti,be_so,be_we
+be_no_ex,be_we_ex,ti,ti,ti,ho,ho,ti,ti,ti,ti,be_so

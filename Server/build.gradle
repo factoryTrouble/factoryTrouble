@@ -1,0 +1,65 @@
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "java"
+apply plugin: 'application'
+
+version = '1.0.1'
+mainClassName = "de.uni_bremen.factroytrouble.server.ServerStarter"
+
+jar {
+    manifest {
+        attributes 'Main-Class': "de.uni_bremen.factroytrouble.server.ServerStarter",
+                'Implementation-Version': version,
+                'Implementation-Title': 'Server'
+    }
+}
+ext {
+    appName = "Server"
+}
+repositories {
+    mavenCentral()
+}
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.edu.sc.seis:macAppBundle:2.1.5"
+        classpath 'gradle.plugin.edu.sc.seis.gradle:launch4j:1.6.1'
+    }
+
+}
+
+apply plugin: "edu.sc.seis.macAppBundle"
+apply plugin: 'edu.sc.seis.launch4j'
+
+dependencies {
+    compile project(":gameEngine")
+    compile project(":api")
+    compile project(":ai")
+    compile project(":spring")
+    compile project(":networkCore")
+    compile 'com.esotericsoftware:kryonet:2.22.0-RC1'
+}
+macAppBundle {
+    icon = "appContent/icon.icns"
+    appName = "FactoryTroubleServer"
+    mainClassName = "de.uni_bremen.factroytrouble.server.ServerStarter"
+    bundleJRE = true
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+}
+
+launch4j {
+    mainClassName = 'de.uni_bremen.factroytrouble.server.ServerStarter'
+    //icon = 'appContent/icon.ico'
+    appName = "FactoryTroubleServer"
+    outfile = 'FactoryTrouble.exe'
+}
+
+task zipWinExe(type: Zip) {
+    from "build/launch4j"
+    exclude '*launch4j*'
+    baseName = 'FactoryTroubleServerWin'
+}

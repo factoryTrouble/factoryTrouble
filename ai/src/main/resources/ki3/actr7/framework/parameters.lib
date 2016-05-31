@@ -1,0 +1,222 @@
+#0Y_ #0Y |CHARSET|::|UTF-8|
+(|SYSTEM|::|C-PROCLAIM|
+ '(|COMMON-LISP|::|SPECIAL| |COMMON-LISP-USER|::|*ACT-R-PARAMETERS-TABLE*|))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|DEFINE-PARAMETER|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|PARAM-NAME| |COMMON-LISP|::|&KEY|
+    (|COMMON-LISP-USER|::|OWNER| |COMMON-LISP|::|T|)
+    (|COMMON-LISP-USER|::|VALID-TEST| |COMMON-LISP|::|NIL|)
+    (|COMMON-LISP-USER|::|DEFAULT-VALUE| |COMMON-LISP|::|NIL|)
+    (|COMMON-LISP|::|WARNING| "") (|CLOS|::|DOCUMENTATION| ""))))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|PARSE-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|PARAMETERS-LIST|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|INSTALL-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|MODULE-NAME| |COMMON-LISP-USER|::|PARAMETERS|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|REMOVE-MODULES-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|MODULE-NAME|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|REMOVE-PARAMETER|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|PARAM-NAME|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|COMMON-LISP-USER|::|SGP|)
+(|SYSTEM|::|%PUTD| '|COMMON-LISP-USER|::|SGP|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|SGP|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|LET*|
+     ((|COMMON-LISP-USER|::|PARAMETERS|
+       (|COMMON-LISP|::|CDR| |SYSTEM|::|<MACRO-FORM>|)))
+     (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|SGP|
+      `(|COMMON-LISP-USER|::|SGP-FCT| ',|COMMON-LISP-USER|::|PARAMETERS|)))))
+  '(|COMMON-LISP|::|&REST| |COMMON-LISP-USER|::|PARAMETERS|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|SGP-FCT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP|::|&OPTIONAL|
+    (|COMMON-LISP-USER|::|PARAMETERS-LIST| |COMMON-LISP|::|NIL|))))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|SET-OR-GET-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|PARAMS|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|GET-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|PARAMS| |COMMON-LISP|::|&OPTIONAL|
+    (|COMMON-LISP-USER|::|OUTPUT| |COMMON-LISP|::|T|))))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|GET-PARAMETER-STRUCT|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|P-NAME|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|VALID-PARAMETER-NAME|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|P-NAME|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|SET-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|PARAMS|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|TEST-AND-SET-PARAMETER-VALUE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|P-NAME| |COMMON-LISP-USER|::|VALUE|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|SET-PARAMETER-VALUE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE|
+  '(|COMMON-LISP-USER|::|PARAM| |COMMON-LISP-USER|::|VALUE|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|COMMON-LISP-USER|::|WITH-PARAMETERS|)
+(|SYSTEM|::|%PUTD| '|COMMON-LISP-USER|::|WITH-PARAMETERS|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|WITH-PARAMETERS|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|COMMON-LISP-USER|::|TEMP-PARAMS|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|COMMON-LISP-USER|::|BODY| (|COMMON-LISP|::|CDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|WITH-PARAMETERS|
+       (|COMMON-LISP|::|LET|
+        ((|COMMON-LISP-USER|::|PARAMS| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|CURRENT-VALS| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|NEW-VALS| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|P-NAME| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|P-VAL| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|VAL| (|COMMON-LISP|::|GENSYM|)))
+        `(|COMMON-LISP|::|LET|
+          ((,|COMMON-LISP-USER|::|PARAMS| ',|COMMON-LISP-USER|::|TEMP-PARAMS|))
+          (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|WITH-PARAMETERS|
+           (|COMMON-LISP-USER|::|VERIFY-CURRENT-MP|
+            "with-parameters called with no current meta-process."
+            (|COMMON-LISP-USER|::|VERIFY-CURRENT-MODEL|
+             "with-parameters called with no current model."
+             (|COMMON-LISP|::|IF|
+              (|COMMON-LISP|::|ODDP|
+               (|COMMON-LISP|::|LENGTH| ,|COMMON-LISP-USER|::|PARAMS|))
+              (|COMMON-LISP-USER|::|PRINT-WARNING|
+               "Odd length parameters list in call to with-parameters. The body is ignored.")
+              (|COMMON-LISP|::|LET|
+               ((,|COMMON-LISP-USER|::|CURRENT-VALS| |COMMON-LISP|::|NIL|)
+                (,|COMMON-LISP-USER|::|NEW-VALS| |COMMON-LISP|::|NIL|))
+               (|COMMON-LISP-USER|::|WHILE| ,|COMMON-LISP-USER|::|PARAMS|
+                (|COMMON-LISP|::|LET|
+                 ((,|COMMON-LISP-USER|::|P-NAME|
+                   (|COMMON-LISP|::|POP| ,|COMMON-LISP-USER|::|PARAMS|))
+                  (,|COMMON-LISP-USER|::|P-VAL|
+                   (|COMMON-LISP|::|POP| ,|COMMON-LISP-USER|::|PARAMS|)))
+                 (|COMMON-LISP|::|UNLESS|
+                  (|COMMON-LISP-USER|::|VALID-PARAMETER-NAME|
+                   ,|COMMON-LISP-USER|::|P-NAME|)
+                  (|COMMON-LISP-USER|::|PRINT-WARNING|
+                   "~s is not the name of a parameter. with-parameters body ignored."
+                   ,|COMMON-LISP-USER|::|P-NAME|)
+                  (|COMMON-LISP|::|RETURN-FROM|
+                   |COMMON-LISP-USER|::|WITH-PARAMETERS| |COMMON-LISP|::|NIL|))
+                 (|COMMON-LISP|::|PUSH|
+                  (|COMMON-LISP|::|CONS| ,|COMMON-LISP-USER|::|P-NAME|
+                   (|COMMON-LISP|::|CAR|
+                    (|COMMON-LISP-USER|::|GET-PARAMETERS|
+                     (|COMMON-LISP|::|LIST| ,|COMMON-LISP-USER|::|P-NAME|)
+                     |COMMON-LISP|::|NIL|)))
+                  ,|COMMON-LISP-USER|::|CURRENT-VALS|)
+                 (|COMMON-LISP-USER|::|PUSH-LAST|
+                  (|COMMON-LISP|::|CONS| ,|COMMON-LISP-USER|::|P-NAME|
+                   ,|COMMON-LISP-USER|::|P-VAL|)
+                  ,|COMMON-LISP-USER|::|NEW-VALS|)))
+               (|COMMON-LISP|::|UNWIND-PROTECT|
+                (|COMMON-LISP|::|PROGN|
+                 (|COMMON-LISP|::|DOLIST|
+                  (,|COMMON-LISP-USER|::|VAL| ,|COMMON-LISP-USER|::|NEW-VALS|)
+                  (|COMMON-LISP-USER|::|TEST-AND-SET-PARAMETER-VALUE|
+                   (|COMMON-LISP|::|CAR| ,|COMMON-LISP-USER|::|VAL|)
+                   (|COMMON-LISP|::|CDR| ,|COMMON-LISP-USER|::|VAL|)))
+                 ,@|COMMON-LISP-USER|::|BODY|)
+                (|COMMON-LISP|::|DOLIST|
+                 (,|COMMON-LISP-USER|::|VAL|
+                  ,|COMMON-LISP-USER|::|CURRENT-VALS|)
+                 (|COMMON-LISP-USER|::|TEST-AND-SET-PARAMETER-VALUE|
+                  (|COMMON-LISP|::|CAR| ,|COMMON-LISP-USER|::|VAL|)
+                  (|COMMON-LISP|::|CDR|
+                   ,|COMMON-LISP-USER|::|VAL|))))))))))))))))
+  '(|COMMON-LISP-USER|::|TEMP-PARAMS| |COMMON-LISP|::|&BODY|
+    |COMMON-LISP-USER|::|BODY|)))
+(|SYSTEM|::|REMOVE-OLD-DEFINITIONS| '|COMMON-LISP-USER|::|WITH-PARAMETERS-FCT|)
+(|SYSTEM|::|%PUTD| '|COMMON-LISP-USER|::|WITH-PARAMETERS-FCT|
+ (|SYSTEM|::|MAKE-MACRO|
+  (|COMMON-LISP|::|FUNCTION| |COMMON-LISP-USER|::|WITH-PARAMETERS-FCT|
+   (|COMMON-LISP|::|LAMBDA| (|SYSTEM|::|<MACRO-FORM>| |SYSTEM|::|<ENV-ARG>|)
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|CONS| |SYSTEM|::|<MACRO-FORM>|))
+    (|COMMON-LISP|::|DECLARE| (|COMMON-LISP|::|IGNORE| |SYSTEM|::|<ENV-ARG>|))
+    (|COMMON-LISP|::|IF|
+     (|COMMON-LISP|::|NOT|
+      (|SYSTEM|::|LIST-LENGTH-IN-BOUNDS-P| |SYSTEM|::|<MACRO-FORM>| 2. 2.
+       |COMMON-LISP|::|T|))
+     (|SYSTEM|::|MACRO-CALL-ERROR| |SYSTEM|::|<MACRO-FORM>|)
+     (|COMMON-LISP|::|LET*|
+      ((|COMMON-LISP-USER|::|TEMP-PARAMS|
+        (|COMMON-LISP|::|CADR| . #1=(|SYSTEM|::|<MACRO-FORM>|)))
+       (|COMMON-LISP-USER|::|BODY| (|COMMON-LISP|::|CDDR| . #1#)))
+      (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|WITH-PARAMETERS-FCT|
+       (|COMMON-LISP|::|LET|
+        ((|COMMON-LISP-USER|::|PARAMS| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|CURRENT-VALS| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|NEW-VALS| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|P-NAME| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|P-VAL| (|COMMON-LISP|::|GENSYM|))
+         (|COMMON-LISP-USER|::|VAL| (|COMMON-LISP|::|GENSYM|)))
+        `(|COMMON-LISP|::|LET|
+          ((,|COMMON-LISP-USER|::|PARAMS|
+            (|COMMON-LISP|::|LIST| ,@|COMMON-LISP-USER|::|TEMP-PARAMS|)))
+          (|COMMON-LISP|::|BLOCK| |COMMON-LISP-USER|::|WITH-PARAMETERS|
+           (|COMMON-LISP-USER|::|VERIFY-CURRENT-MP|
+            "with-parameters called with no current meta-process."
+            (|COMMON-LISP-USER|::|VERIFY-CURRENT-MODEL|
+             "with-parameters called with no current model."
+             (|COMMON-LISP|::|IF|
+              (|COMMON-LISP|::|ODDP|
+               (|COMMON-LISP|::|LENGTH| ,|COMMON-LISP-USER|::|PARAMS|))
+              (|COMMON-LISP-USER|::|PRINT-WARNING|
+               "Odd length parameters list in call to with-parameters. The body is ignored.")
+              (|COMMON-LISP|::|LET|
+               ((,|COMMON-LISP-USER|::|CURRENT-VALS| |COMMON-LISP|::|NIL|)
+                (,|COMMON-LISP-USER|::|NEW-VALS| |COMMON-LISP|::|NIL|))
+               (|COMMON-LISP-USER|::|WHILE| ,|COMMON-LISP-USER|::|PARAMS|
+                (|COMMON-LISP|::|LET|
+                 ((,|COMMON-LISP-USER|::|P-NAME|
+                   (|COMMON-LISP|::|POP| ,|COMMON-LISP-USER|::|PARAMS|))
+                  (,|COMMON-LISP-USER|::|P-VAL|
+                   (|COMMON-LISP|::|POP| ,|COMMON-LISP-USER|::|PARAMS|)))
+                 (|COMMON-LISP|::|UNLESS|
+                  (|COMMON-LISP-USER|::|VALID-PARAMETER-NAME|
+                   ,|COMMON-LISP-USER|::|P-NAME|)
+                  (|COMMON-LISP-USER|::|PRINT-WARNING|
+                   "~s is not the name of a parameter. with-parameters body ignored."
+                   ,|COMMON-LISP-USER|::|P-NAME|)
+                  (|COMMON-LISP|::|RETURN-FROM|
+                   |COMMON-LISP-USER|::|WITH-PARAMETERS| |COMMON-LISP|::|NIL|))
+                 (|COMMON-LISP|::|PUSH|
+                  (|COMMON-LISP|::|CONS| ,|COMMON-LISP-USER|::|P-NAME|
+                   (|COMMON-LISP|::|CAR|
+                    (|COMMON-LISP-USER|::|GET-PARAMETERS|
+                     (|COMMON-LISP|::|LIST| ,|COMMON-LISP-USER|::|P-NAME|)
+                     |COMMON-LISP|::|NIL|)))
+                  ,|COMMON-LISP-USER|::|CURRENT-VALS|)
+                 (|COMMON-LISP-USER|::|PUSH-LAST|
+                  (|COMMON-LISP|::|CONS| ,|COMMON-LISP-USER|::|P-NAME|
+                   ,|COMMON-LISP-USER|::|P-VAL|)
+                  ,|COMMON-LISP-USER|::|NEW-VALS|)))
+               (|COMMON-LISP|::|UNWIND-PROTECT|
+                (|COMMON-LISP|::|PROGN|
+                 (|COMMON-LISP|::|DOLIST|
+                  (,|COMMON-LISP-USER|::|VAL| ,|COMMON-LISP-USER|::|NEW-VALS|)
+                  (|COMMON-LISP-USER|::|TEST-AND-SET-PARAMETER-VALUE|
+                   (|COMMON-LISP|::|CAR| ,|COMMON-LISP-USER|::|VAL|)
+                   (|COMMON-LISP|::|CDR| ,|COMMON-LISP-USER|::|VAL|)))
+                 ,@|COMMON-LISP-USER|::|BODY|)
+                (|COMMON-LISP|::|DOLIST|
+                 (,|COMMON-LISP-USER|::|VAL|
+                  ,|COMMON-LISP-USER|::|CURRENT-VALS|)
+                 (|COMMON-LISP-USER|::|TEST-AND-SET-PARAMETER-VALUE|
+                  (|COMMON-LISP|::|CAR| ,|COMMON-LISP-USER|::|VAL|)
+                  (|COMMON-LISP|::|CDR|
+                   ,|COMMON-LISP-USER|::|VAL|))))))))))))))))
+  '(|COMMON-LISP-USER|::|TEMP-PARAMS| |COMMON-LISP|::|&BODY|
+    |COMMON-LISP-USER|::|BODY|)))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|SHOW-ALL-PARAMETERS|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '|COMMON-LISP|::|NIL|))
+(|SYSTEM|::|C-DEFUN| '|COMMON-LISP-USER|::|GET-PARAMETER-DEFAULT-VALUE|
+ (|SYSTEM|::|LAMBDA-LIST-TO-SIGNATURE| '(|COMMON-LISP-USER|::|PARAM|)))

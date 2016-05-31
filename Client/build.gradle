@@ -1,0 +1,21 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'application'
+
+version = '1.0'
+
+repositories {
+    mavenCentral()
+}
+
+
+mainClassName = "de.uni_bremen.factroytrouble.client.ClientConnection"
+
+
+
+dependencies {
+    compile project(":networkCore")
+    compile project(":api")
+    compile project(":spring")
+    compile 'com.esotericsoftware:kryonet:2.22.0-RC1'
+}

@@ -1,0 +1,135 @@
+(|SYSTEM|::|VERSION| '(20080430.))
+#0Y_ #0Y |CHARSET|::|UTF-8|
+#Y(#:|1 86 (DEFUN COMPOSE-MOTOR-BUFFER (P1 P1-S P2 ...) ...)-1|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|COMPOSE-MOTOR-BUFFER|
+    |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|COMPOSE-MOTOR-BUFFER|
+       #150Y(00 00 00 00 05 00 00 00 26 06 AD 72 A6 DA 73 02 13 38 01 71 E1 DB
+             AD 72 A6 73 02 13 38 01 71 E1 DC AE 72 A6 73 02 13 38 01 71 E1 AC
+             94 08 38 06 C8 FA 72 77 71 AE AD 94 07 38 06 C8 FA 72 77 71 AE AF
+             A7 5C 78 38 06 C8 FA 72 77 71 AE B0 A6 5C 78 38 06 C8 FA 72 77 71
+             AE B4 DE BA DF 72 43 38 03 31 C8 79 92 00 01 CB 16 01 26 07 26 93
+             02 0B 1B 06 00 1B 12 93 03 03 14 61 01 14 93 01 0F 1B 0A 93 03 03
+             14 61 01 14 93 02 03 14 61 01 14 61 02 19 0D 00 19 0D)
+       (">" "+" "?" |COMMON-LISP|::|CAR| |COMMON-LISP-USER|::|PRODUCTION| 15.
+        0.
+        #S(|COMMON-LISP|::|HASH-TABLE| :|TEST| |EXT|::|STABLEHASH-EQ|
+           (20. . 21.) (16. . 9.) (4. . 6.) (0. . 1.)))
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP-USER|::|P1| |COMMON-LISP-USER|::|P1-S|
+        |COMMON-LISP-USER|::|P2| |COMMON-LISP-USER|::|P2-S|
+        |COMMON-LISP-USER|::|BUFFER|)
+       |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|88 98 (DEFUN M-B-C1 (BUFFER P1 P2) ...)-2|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|M-B-C1| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|M-B-C1|
+       #43Y(00 00 00 00 03 00 00 00 26 04 00 2B 01 7F 04 00 00 AC 6D 00 01 DB
+            B0 DC 72 43 38 04 72 78 DD DE AE DF 72 43 6F 06 33 00 2A 19 06)
+       (#Y(|COMMON-LISP-USER|::|M-B-C1-1|
+           #32Y(00 00 00 00 01 00 00 00 26 02 DB AE DC 72 43 C8 5A 1F 0B DB AE
+                DE 72 43 07 00 01 5A 19 02 19 02)
+           (|COMMON-LISP|::|NIL| |COMMON-LISP-USER|::|PRODUCTION-STATEMENT| 1.
+            #\? 2.)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+           (|COMMON-LISP-USER|::|X|) |COMMON-LISP|::|NIL| 1)
+        |COMMON-LISP-USER|::|PRODUCTION| 8.
+        #Y(|COMMON-LISP-USER|::|M-B-C1-2|
+           #16Y(00 00 00 00 01 00 00 00 26 02 AD DA 32 15 19 02)
+           ((|COMMON-LISP|::|=| |COMMON-LISP-USER|::|STATE|
+             |COMMON-LISP-USER|::|BUSY|))
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+           (|COMMON-LISP-USER|::|X|) |COMMON-LISP|::|NIL| 1)
+        |COMMON-LISP-USER|::|PRODUCTION-STATEMENT| 4.
+        |COMMON-LISP-USER|::|CHUNK-SPEC-SLOT-SPEC|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP-USER|::|BUFFER| |COMMON-LISP-USER|::|P1|
+        |COMMON-LISP-USER|::|P2|)
+       "Compilation check for queries such that p2 only uses 'state busy' \n
+  since buffer empty is meaningless for motor style buffers"
+       1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|100 115 (DEFUN M-B-C2 (BUFFER P1 P2) ...)-3|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|M-B-C2| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|M-B-C2|
+       #89Y(00 00 00 00 03 00 00 00 26 04 00 2B 01 7F 04 00 00 AC 6D 00 01 DB
+            B1 DC 72 43 38 04 72 78 93 00 07 DD AD DE 72 43 2F 05 F8 AD 6D 06
+            01 DB B1 DC 72 43 38 04 72 78 93 00 07 DD AD DE 72 43 2F 05 F8 AD
+            72 62 AD 72 62 AF AF 73 02 23 38 06 CC F9 72 6F 72 62 33 02 2F 19
+            07)
+       (#Y(|COMMON-LISP-USER|::|M-B-C2-1|
+           #32Y(00 00 00 00 01 00 00 00 26 02 DB AE DC 72 43 C8 5A 1F 0B DB AE
+                DE 72 43 07 00 01 5A 19 02 19 02)
+           (|COMMON-LISP|::|NIL| |COMMON-LISP-USER|::|PRODUCTION-STATEMENT| 1.
+            #\? 2.)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+           (|COMMON-LISP-USER|::|X|) |COMMON-LISP|::|NIL| 1)
+        |COMMON-LISP-USER|::|PRODUCTION| 8.
+        |COMMON-LISP-USER|::|PRODUCTION-STATEMENT| 4.
+        |COMMON-LISP-USER|::|CHUNK-SPEC-SLOT-SPEC|
+        #Y(|COMMON-LISP-USER|::|M-B-C2-2|
+           #32Y(00 00 00 00 01 00 00 00 26 02 DB AE DC 72 43 C8 5A 1F 0B DB AE
+                DE 72 43 07 00 01 5A 19 02 19 02)
+           (|COMMON-LISP|::|NIL| |COMMON-LISP-USER|::|PRODUCTION-STATEMENT| 1.
+            #\? 2.)
+           (|COMMON-LISP|::|T| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+           (|COMMON-LISP-USER|::|X|) |COMMON-LISP|::|NIL| 1)
+        |COMMON-LISP|::|EQUAL|)
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|)
+       (|COMMON-LISP-USER|::|BUFFER| |COMMON-LISP-USER|::|P1|
+        |COMMON-LISP-USER|::|P2|)
+       "queries in p1 and p2 must be the same\n
+   NOTE: this doesn't take into account any variables at this time"
+       1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|117 135 (DEFUN MOTOR-REASON (P1-INDEX P2-INDEX FAILED-FUNCTION) ...)-4|
+   #20Y(00 00 00 00 00 00 00 00 20 01 DA 2F 01 DA DC 32 9C C5 19 01)
+   (|COMMON-LISP-USER|::|MOTOR-REASON| |SYSTEM|::|REMOVE-OLD-DEFINITIONS|
+    #Y(|COMMON-LISP-USER|::|MOTOR-REASON|
+       #47Y(00 00 00 00 03 00 00 00 26 04 AD 24 00 08 AD 24 02 07 A0 26 04 0C
+            C6 19 04 C8 19 04 CA 19 04 CB 19 04 9F 26 07 06 CD 19 04 CE 19 04
+            CF 19 04)
+       (|COMMON-LISP-USER|::|M-B-C1|
+        "when the first production makes a request the second can only query for state busy."
+        |COMMON-LISP-USER|::|M-B-C2|
+        "the queries in both productions must be the same."
+        #S(|COMMON-LISP|::|HASH-TABLE| :|TEST| |EXT|::|STABLEHASH-EQ|
+           (22. . 10.) (18. . 10.) (6. . 10.) (2. . 10.) (63. . 7.) (62. . 7.)
+           (61. . 7.) (59. . 7.) (60. . 7.) (58. . 7.) (57. . 7.) (56. . 7.)
+           (47. . 7.) (46. . 7.) (45. . 7.) (43. . 7.) (44. . 7.) (42. . 7.)
+           (41. . 7.) (40. . 7.) (31. . 7.) (30. . 7.) (29. . 7.) (28. . 7.)
+           (27. . 7.) (26. . 7.) (25. . 7.) (24. . 7.) (15. . 7.) (14. . 7.)
+           (13. . 7.) (12. . 7.) (11. . 7.) (10. . 7.) (9. . 7.) (8. . 7.))
+        "buffer tests in first production are not allowed."
+        "the buffer is explicitly cleared in the first production."
+        #S(|COMMON-LISP|::|HASH-TABLE| :|TEST| |EXT|::|STABLEHASH-EQ|
+           (22. . 4.) (18. . 4.) (6. . 4.) (2. . 4.) (63. . 1.) (62. . 1.)
+           (61. . 1.) (59. . 1.) (60. . 1.) (58. . 1.) (57. . 1.) (56. . 1.)
+           (47. . 1.) (46. . 1.) (45. . 1.) (43. . 1.) (44. . 1.) (42. . 1.)
+           (41. . 1.) (40. . 1.) (31. . 1.) (30. . 1.) (29. . 1.) (28. . 1.)
+           (27. . 1.) (26. . 1.) (25. . 1.) (24. . 1.) (15. . 1.) (14. . 1.)
+           (13. . 1.) (12. . 1.) (11. . 1.) (10. . 1.) (9. . 1.) (8. . 1.))
+        "buffer tests in second production are not allowed."
+        "the buffer is explicitly cleared in the second production."
+        "both productions make requests.")
+       (|COMMON-LISP|::|T| |COMMON-LISP|::|NIL| |COMMON-LISP|::|NIL|)
+       (|COMMON-LISP-USER|::|P1-INDEX| |COMMON-LISP-USER|::|P2-INDEX|
+        |COMMON-LISP-USER|::|FAILED-FUNCTION|)
+       |COMMON-LISP|::|NIL| 1))
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))
+#Y(#:|137 148 (DEFINE-COMPILATION-TYPE MOTOR (# # # ...) ...)-5|
+   #23Y(00 00 00 00 00 00 00 00 20 01 DA DB DC 63 DD 01 03 DE 2D 09 05 19 01)
+   (|COMMON-LISP-USER|::|MOTOR|
+    ((20. 16. |COMMON-LISP-USER|::|M-B-C1|) (20. 0. |COMMON-LISP|::|T|)
+     (16. 20. |COMMON-LISP-USER|::|M-B-C2|)
+     (16. 16. |COMMON-LISP-USER|::|M-B-C2|) (16. 4. |COMMON-LISP|::|T|)
+     (16. 0. |COMMON-LISP|::|T|) (4. 16. |COMMON-LISP-USER|::|M-B-C1|)
+     (4. 0. |COMMON-LISP|::|T|) (0. 20. |COMMON-LISP|::|T|)
+     (0. 16. |COMMON-LISP|::|T|) (0. 4. |COMMON-LISP|::|T|))
+    :|DEFAULT| |COMMON-LISP-USER|::|COMPOSE-MOTOR-BUFFER|
+    |COMMON-LISP-USER|::|MOTOR-REASON|
+    |COMMON-LISP-USER|::|DEFINE-COMPILATION-TYPE-FCT|)
+   (|COMMON-LISP|::|T| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))

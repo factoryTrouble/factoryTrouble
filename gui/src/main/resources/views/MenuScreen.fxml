@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<GridPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="768.0" prefWidth="1024.0" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
+  <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+  </columnConstraints>
+  <rowConstraints>
+      <RowConstraints maxHeight="30.0" minHeight="30.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <MenuBar fx:id="menuBar" maxHeight="30.0" maxWidth="1.7976931348623157E308" minHeight="30.0" prefHeight="30.0" prefWidth="2000.0" GridPane.columnSpan="3">
+         <menus>
+            <Menu mnemonicParsing="false" text="Menü">
+               <items>
+                  <MenuItem fx:id="newGameScreenMenuItem" mnemonicParsing="false" onAction="#handleNewGameScreenItemAction" text="Neues Spiel" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="menuScreenMenuItem" disable="true" mnemonicParsing="false" onAction="#handleMenuScreenItemAction" text="Hauptmenü" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="optionScreenMenuItem" mnemonicParsing="false" onAction="#handleOptionScreenItemAction" text="Optionen" />
+                  <SeparatorMenuItem mnemonicParsing="false" />
+                  <MenuItem fx:id="exitMenuItem" mnemonicParsing="false" onAction="#handleExitMenuItemAction" text="Beenden" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+      <JFXButton fx:id="newGameBtn" buttonType="RAISED" contentDisplay="CENTER" onAction="#handleNewGameBtnAction" prefHeight="67.0" prefWidth="348.0" style="-fx-background-color: #f39c12;" text="Neues Spiel" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="optionBtn" buttonType="RAISED" onAction="#handleOptionBtnAction" prefHeight="67.0" prefWidth="351.0" style="-fx-background-color: #f39c12;" text="Optionen" GridPane.halignment="CENTER" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="exitBtn" onAction="#handleExitBtnAction" prefHeight="67.0" prefWidth="345.0" style="-fx-background-color: #f39c12;" text="Beenden" GridPane.halignment="CENTER" GridPane.rowIndex="3" GridPane.valignment="CENTER">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </JFXButton>
+   </children>
+</GridPane>

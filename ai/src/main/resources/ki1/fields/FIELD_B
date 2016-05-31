@@ -1,0 +1,12 @@
+ti,ti,ti_wso,ti,ti_wso,ti,ti,ti_wso,ti,ti_wso,ti,ws
+ti,be_no_ex,be_we_ex,be_we_ex_wno,be_we_ex,be_we_ex_wno,be_we_ex_wno,be_we_ex,be_we_ex_wno,be_we_ex,be_we_ex,ti
+ti_wwe,be_no_ex,be_no,ti,be_no,ti,be_no,ti,be_no,ti,be_so_ex,ti_wea
+ti,be_no_ex_wea,ti,be_no,ti,ho,ti,be_no,ti,be_no,be_so_ex_wwe,ti
+ti_wwe,be_no_ex,be_no,ti,be_no,ti,be_no,ti,be_no,ti,be_so_ex,ti_wea
+ti,be_no_ex_wea,ti,be_no,ti,ws_ad,ti,ho,ti,be_no,be_so_ex_wwe,ti
+ti,be_no_ex_wea,be_so,ti,ho,ti,ws_ad,ti,be_so,ti,be_so_ex_wwe,ti
+ti_wwe,be_no_ex,ti,be_so,ti,be_so,ti,be_so,ti,be_so,be_so_ex,ti_wea
+ti,be_no_ex_wea,be_so,ti,be_so,ti,be_so,ti,ho,ti,be_so_ex_wwe,ti
+ti_wwe,be_no_ex,ti,be_so,ti,be_so,ti,be_so,ti,be_so,be_so_ex,ti_wea
+ti,be_ea_ex,be_ea_ex,be_ea_ex_wso,be_ea_ex,be_ea_ex_wso,be_ea_ex_wso,be_ea_ex,be_ea_ex_wso,be_ea_ex,be_so_ex,ti
+ws,ti,ti_wno,ti,ti_wno,ti,ti,ti_wno,ti,ti_wno,ti,ti

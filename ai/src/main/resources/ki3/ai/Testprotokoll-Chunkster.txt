@@ -1,0 +1,176 @@
+===================================
+>>> Informationen zur Kodierung <<<
+===================================
+Board:
+- Kodierung: siehe Wiki unter "Sonstige -> Kodierungen für ACT-R-Agenten"
+- Empfehlung: Board
+
+Roboter:
+- Name, eigener Roboter [T,NILL], LP, HP, Orientierung [N,E,S,W], Registerinhalt [Karten durch '-' getrennt], Powerdown, Flaggenstatus, Position [x:y], Respawn [x:y];
+
+
+Handkarten:
+- Bewegungskarte: a[1-3] (vorwärts), b1 (rückwärts)
+- Drehungen: t[l,r,u] (links, rechts, uturn)
+- Priorität: 50
+Aufbau: card_prio,card1_prio, ..., card8_prio;
+
+
+
+======================================================
+>>> Test-Protokoll für das Modell Chunky/Chunkster <<<
+======================================================
+
+TESTFALL (Beschreibung): 
+Prüfe, ob die Produktion 'all-locked' feuert, wenn beim eigenen Roboter alle Register gelockt sind
+
+VARIABLENWERTE:
+test-board: board-empty
+test-robot: "hammer,t,3,1,w,rr_380-a3_840-rl_130-a2_780-rl_70,nil,2,7:11,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,4:2;"
+test-hand: ha
+
+ERGEBNIS:
+Konsolenausgabe: -1,-1,-1,-1,-1
+Die Produktion 'all-locked' feuert.
+
+KORREKT: JA
+
+=============================================
+
+TESTFALL (Beschreibung):
+Roboter kann Flagge innerhalb eines Zuges erreichen.
+
+VARIABLENWERTE 1:
+test-board: board-empty
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,0,0:6,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+test-hand: "a1_540,a1_600,tr_380,a3_840,tu_50,a2_780,a2_730,tl_130,b1_460;" <<< Hand1
+
+ERGEBNIS 1: 
+Konsolenausgabe: 3,5,0,1,2 -> a3,a2,a1,a1,tr
+Flagge wird nicht erreicht. Roboter dreht sich anstatt auf das Flaggenfeld zu laufen. => Fehler
+
+-----
+
+VARIABLENWERTE 2:
+test-board: board-empty
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,0,0:10,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+test-hand: "a1_540,tu_50,a1_550,tr_380,a1_560,a1_570,a1_580,tl_130,b1_460;" <<< Hand2
+
+ERGEBNIS 2:
+Konsolenausgabe:    0,2,4,3,7 -> a1,a1,a1,tr,tl
+                    0,2,3,7,5 -> a1,a1,tr,tl,a1
+Flagge wird nicht erreicht. Roboter dreht sich anstatt auf das Flaggenfeld zu laufen => Fehler
+Siehe: Phobie-Hand2_1.JPG
+
+-----
+
+VARIABLENWERTE 3:
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,0,1:8,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;" <<< hier und folgend nur Roboter modifiziert!
+
+ERGEBNIS 3:
+Konolenausgabe: 0,2,4,6,5 -> a1,a1,a1,a1,a1
+Flagge wir erreicht => korrekt
+
+-----
+
+VARIABLENWERTE 4:
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,2,1:4,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+
+ERGEBNIS 4:
+Konsolenausgabe: 0,2,4,3,5 -> a1,a1,a1,tr,a1
+Flagge wird erreicht => korrekt
+Vermutung: load-blank-tile sorgt für Probleme (siehe 2)
+
+-----
+
+VARIABLENWERTE 5:
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,2,3:4,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+
+ERGEBNIS 5:
+Konsolenausgabe: 0,2,4,7,8 -> a1,a1,a1,tl,b1
+Statt sich der Flagge zu nähern oder stehen zu bleiben bewegt sich Chunkster von der Flagge weg => Fehler
+Siehe: Phobie-Hand2_2.JPG
+
+-----
+
+VARIABLENWERTE 6:
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,2,2:11,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+
+ERGEBNIS 6:
+Konsolenausgabe: 8,1,7,3,0 -> b1,tu,tl,tr,a1
+Flagge wird nicht erreicht => Fehler
+Siehe: Phobie-Hand2_3.JPG
+
+-----
+
+VARIABLENWERTE 7:
+test-robot: "hammer,t,3,10,s,nil-nil-nil-nil-nil,nil,0,1:9,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+
+ERGEBNIS 7:
+Konsolenausgabe: 0,2,4,6,8 -> a1,a1,a1,a1,b1
+Roboter läuft von Flagge weg => Fehler
+Auffällig: jeder zweite Index wird gewählt!
+Siehe: Phobie-Hand2_4.JPG
+
+-----
+
+VARIABLENWERTE 8:
+test-robot: "hammer,t,3,10,s,nil-nil-nil-nil-nil,nil,2,4:10,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+
+ERGEBNIS 8:
+Konsolenausgabe: 8,3,7,0,5 -> b1,tr,tl,a1,a1
+Flagge wird nicht erreicht => Fehler
+Siehe: Phobie-Hand2_5.JPG
+
+-----
+
+
+
+KORREKT: NEIN
+
+TRELLO: Flaggenphobie
+
+STATUS: behoben?!
+
+=============================================
+
+TESTFALL (Beschreibung):
+Roboter kann Flagge nicht erreichen, sich dieser aber nähern.
+
+VARIABLENWERTE 1:
+test-board: board-empty
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,1,1:9,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+test-hand: "a1_540,a1_600,tr_380,a3_840,tu_50,a2_780,a2_730,tl_130,b1_460;"
+
+ERGEBNIS 1:
+Konsolenausgabe: 2,3,5,6,6 -> tr,a3,a2,a2,a2
+Drehung mit anschließender Bewegung korrekt. ABER: doppelter Index
+
+VARIABLENWERTE 2:
+test-board: board-empty
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,1,1:9,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+test-hand: "a1_540,a1_600,tr_380,a2_730,tu_50,a2_780,a3_840,tl_130,b1_460;"
+
+ERGEBNIS 2:
+Konsolenausgabe: 2,6,3,5,5 -> tr,a3,a2,a2,a2
+Siehe Ergebnis 1.
+    
+VARIABLENWERTE 3:
+test-board: board-empty
+test-robot: "hammer,t,3,10,n,nil-nil-nil-nil-nil,nil,1,1:9,1:1;enemy,nil,3,10,e,nil-nil-nil-nil-nil,t,0,11:11,0:1;"
+test-hand: "a1_540,a2_780,tr_380,a2_730,tu_50,a1_600,a3_840,tl_130,b1_460;"
+
+ERGEBNIS 3:
+Konsolenausgabe: 2,6,1,3,0 -> tr,a3,a2,a2,a1 => korrekt bzgl. doppelter Index
+
+KORREKT: NEIN
+
+TRELLO: Chunkster schummelt
+
+STATUS: in Bearbeitung
+
+=====================
+>>> Boardsammlung <<<
+=====================
+Bis auf Flaggen und Wänden auf den Docs ein leeres GameBoard:
+board-empty: "ti,ti,ti_ws,ti,ti_ws,ti,ti,ti_ws,ti,ti_ws,ti,ti;ti,ti_ww,ti,ti_ww,ti,ti_ww,ti_ww,ti_ww,ti,ti_ww,ti,ti_ww;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti_wn,ti,ti_wn,ti,ti,ti_wn,ti,ti_wn,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,f2,ti;ti,ti,f3,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,f1,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti,ti;"

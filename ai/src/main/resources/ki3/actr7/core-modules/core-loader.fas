@@ -1,0 +1,8 @@
+(|SYSTEM|::|VERSION| '(20080430.))
+#0Y_ #0Y |CHARSET|::|UTF-8|
+#Y(#:|1 78 (SETF *FILE-LIST* '("declarative-memory" "goal" "procedural" ...))-1|
+   #15Y(00 00 00 00 00 00 00 00 20 01 C5 0F 01 19 01)
+   (("declarative-memory" "goal" "procedural" "vision" "motor" "audio" "speech"
+     "imaginal")
+    |COMMON-LISP-USER|::|*FILE-LIST*|)
+   (|COMMON-LISP|::|NIL| |COMMON-LISP|::|T| |COMMON-LISP|::|T|))

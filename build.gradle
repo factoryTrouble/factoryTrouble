@@ -1,0 +1,75 @@
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'eclipse'
+
+version = '1.0'
+
+ext.springVersion = '4.2.2.RELEASE'
+ext.log4JVersion = '1.2.17'
+ext.junitVersion = '4.11'
+ext.mockitoVersion = '1.10.8'
+
+allprojects {
+
+	apply plugin: 'java'
+	apply plugin: 'idea'
+	apply plugin: 'eclipse'
+	apply plugin: 'jacoco'
+
+	compileJava.options.fork = true
+
+	repositories {
+	    mavenCentral()
+	}
+
+	dependencies {
+		compile 'org.springframework:spring-context:' + springVersion
+    compile 'org.springframework.boot:spring-boot-starter-test:1.1.5.RELEASE'
+		compile 'log4j:log4j:' + log4JVersion
+
+	    testCompile group: 'junit', name: 'junit', version: junitVersion
+	    testCompile 'org.mockito:mockito-core:' + mockitoVersion
+	}
+
+}
+
+buildscript {
+	repositories {
+		maven {
+			url "http://repo1.maven.org/maven2/"
+		}
+		maven {
+			url "https://plugins.gradle.org/m2/"
+		}
+		mavenLocal()
+	}
+	dependencies {
+        classpath "org.sonarsource.scanner.gradle:sonarqube-gradle-plugin:1.2"
+		classpath 'org.ajoberstar:gradle-jacoco:0.1.0'
+		classpath 'de.undercouch:gradle-download-task:2.1.0'
+	}
+}
+
+apply plugin: "org.sonarqube"
+apply plugin: 'de.undercouch.download'
+
+sonarqube {
+	properties {
+		property "project.Key", "de.uni_bremen.factroytrouble"
+		property "project.Name", "FactoryTrouble"
+		property "sonar.sourceEncoding", "UTF-8"
+
+		property "sonar.host.url", "A SONAR URL"
+		property "sonar.login", "A SONAR USER"
+		property "sonar.password", "A SONAR PASSWORD"
+
+		property "sonar.junit.reportsPath", "api/build/test-results,ai/build/test-results,gameEngine/build/test-results,gui/build/test-results,boardCreator/build/test-results"
+		property "sonar.jacoco.reportPath", "api/build/jacoco,ai/build/jacoco,gameEngine/build/jacoco,gui/build/jacoco,boardCreator/build/jacoco"
+
+        property "sonar.exclusions", "**/PlayerChoiceBox*"
+	}
+}
+
+tasks.eclipse.doLast {
+    delete ".project"
+}

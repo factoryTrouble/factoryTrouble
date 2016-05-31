@@ -1,0 +1,71 @@
+apply plugin: "eclipse"
+apply plugin: "idea"
+apply plugin: "java"
+apply plugin: 'application'
+
+version = '1.0'
+mainClassName = "de.uni_bremen.factroytrouble.editor.BoardCreatorApp"
+
+jar {
+    manifest {
+        attributes 'Main-Class': "de.uni_bremen.factroytrouble.editor.BoardCreatorApp",
+                'Implementation-Version': version,
+                'Implementation-Title': 'FactoryTrouble BoardCreator'
+    }
+}
+
+ext {
+    appName = "FactoryTrouble"
+}
+
+repositories {
+    mavenCentral()
+
+    maven {
+        url "https://oss.sonatype.org/content/groups/public"
+    }
+
+}
+dependencies {
+    testCompile 'de.saxsys:jfx-testrunner:1.0'
+}
+
+
+buildscript {
+    repositories {
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+    }
+    dependencies {
+        classpath "gradle.plugin.edu.sc.seis:macAppBundle:2.1.5"
+        classpath 'gradle.plugin.edu.sc.seis.gradle:launch4j:1.6.1'
+        classpath 'de.undercouch:gradle-download-task:2.1.0'
+    }
+
+}
+
+apply plugin: "edu.sc.seis.macAppBundle"
+apply plugin: 'edu.sc.seis.launch4j'
+apply plugin: 'de.undercouch.download'
+
+macAppBundle {
+    icon = "appContent/icon.icns"
+    appName = "FactoryTrouble BoardCreator"
+    mainClassName = "de.uni_bremen.factroytrouble.editor.BoardCreatorApp"
+    bundleJRE = true
+    javaProperties.put("apple.laf.useScreenMenuBar", "true")
+}
+
+launch4j {
+    mainClassName = 'de.uni_bremen.factroytrouble.editor.BoardCreatorApp'
+    //icon = 'appContent/icon.ico'
+    appName = "FactoryTrouble BoardCreator"
+    outfile = 'FactoryTrouble BoardCreator.exe'
+}
+
+task zipWinExe(type: Zip) {
+    from "build/launch4j"
+    exclude '*launch4j*'
+    baseName = 'FactoryTroubleWin'
+}

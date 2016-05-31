@@ -1,0 +1,378 @@
+================================
+>>> allgemeine Informationen <<<
+================================
+- JEDE Funktion ist von einem Klammerpaar umschlossen und ist ebenso über die Konsole aufzurufen
+- ein LISP-Programm muss zunächst mittels "(LOAD path)" über die Konsole geladen werden, ehe dessen Funktionen
+    genutzt werden können. 
+    Werden mehrere Programme nacheinander geladen, so stehen fortan sämtliche Funktionen aller geladenen Programme
+    zur Verfügung bis die Konsole geschlossen wird.
+    
+- mathematische Operatoren, Vergleichsoperatoren, ... liegen in der Präfix-Notation vor: (+ 1 2)
+- einzeiliger Kommentare werden mit ';' eingeleitet
+- Blockkomentar: #| haufenweise Dokuzeuchs, ... über mehrere Zeilen |#
+
+- Groß- und Kleinschreibung werden vom Interpreter nicht beachtet. Konvention: Bindestrich statt camelCase (Bsp.: set-data)
+- JEDE Funktion hat einen Rückgabewert (der zuletzt ausgewertete Ausdruck. z.B. APPEND gibt eine Liste zurück)
+- LISP basiert auf Listen: LISP = LISt Processing
+
+Folgend wird '->' die Rückgabe von Funktionen kennzeichnen.
+
+===============================
+>>> Variablen und Datenypen <<<
+===============================
+GLOBAL
+    - werden mittels (DEFVAR var val) gesetzt/intialisiert und behalten ihren Wert bei, bis dieser mittels SET, SETQ oder SETF geändert wird.
+    - eine globale Variable var wird nach dem Aufruf von DEFVAR als gebunden erkannt
+
+SETTER
+    - (SET var val):    kann den Wert von Symbolen setzen
+    - (SETQ var val):   kann den Wert von Variablen setzen
+    - (SETF var val):   Makro. Kann den Wert von Symbolen, Variablen, Arrays, Structs, ... setzen
+    - von oben nach unten wird die Funktionalität eines Setter also erweitert: SETQ kann wie SET auch Symbole setzen. Umgekehrt kann
+        SET allerdings keine Variablen setzen!
+        
+        EMPFEHLUNG: SETF nutzen!
+        
+LOKAL
+    - Können mittels SETQ und SETF in Funktionen gesetzt werden. Dies erzeugt allerdings Warnings, denn der Interpreter
+        legt in diesem Fall globale Variablen an, sofern eine angegebene Variable noch nicht existiert.
+    - Können mittels der Funktion LET gesetzt/initialisiert werden (mehr dazu unter "eigene Funktionen")
+
+BOOL
+    - T steht für true und NIL für false.
+    - ACHTUNG: NIL steht ebenfalls für leere Listen
+    - Sämtliche Variablen, die mit einem Wert belegt sind, werten zu T aus
+    
+SYMBOLE
+    - werden unter anderem mit ' erzeugt
+        Bsp.: 'forward
+
+ACHTUNG: Auch wenn es "nur" zu Warnungen ("unbound variable x") durch den Interpreter kommt, sollte jede Variable gebunden werden. 
+Globale Variablen werden bereits durch DEFVAR gebunden. Lokale Variablen gelten als gebunden, wenn diese mittels 
+LET gesetzt/initialisiert werden. Schleifen binden von sich aus ihre Laufvariablen.
+        
+=========================
+>>> eigene Funktionen <<<
+=========================
+DEFUN
+    - Syntax:   (DEFUN name (par1 par2 ... parn) (actions))
+    - definiert eine neue Funktion mit den Parametern par1 - parn. Hinter den Parametern folgen die Aktionen der Funktion.
+ACHTUNG: Die erste Funktion, die innerhalb einer Funktion genutzt wird, sollte LET sein. Mit dieser Funktion werden die lokalen
+Variablen der Funktion gesetzt/initialisiert. Geschieht dies nicht, so kann es zu Warnungen kommen (z.B.: SETF wird für eine Variable
+genutzt, die mittels LET noch nicht gebunden wurde) oder aber zu Fehlern (Variable ist halt nicht vorhanden).
+    - Beispiel:
+        (DEFUN test (x y)
+            (LET ((c) (d 3))
+                (SETF c (+ x y))
+                (* c d)
+            )
+        )
+    - die Variablen x und y sind Parameter der Funktion test und sind daher gebunden. Anders verhält es sich jedoch mit den Variablen c und d, 
+        die durch LET gebunden werden müssen. Im obigen Beispiel wird d ein initialer Wert 3 zugewiesen, was allerdings optional ist (siehe c).
+
+RÜCKGABE
+    - JEDE Funktion hat einen Rückgabewert. Wird in der Funktion keine Return-Anweisung gesetzt, so wird der zuletzt ausgewertete Ausdruck von der
+        Funktion zurückgegeben.
+        
+RETURN-FROM
+    - Syntax:   (RETURN-FROM func var)
+    - von der Funktion func wird der Wert der Variablen var zurückgegeben.
+    - nützlich, wenn man lange Ausgaben (z.B. von Listen) vermeiden will. In diesem Fall kann man einfach NIL zurückgeben, wenn dies die 
+        Funktionalität nicht beeinträchtigt. 
+        
+=====================
+>>> Verzweigungen <<<
+=====================
+IF
+    - Syntax: (IF (test) (action-true) (action-false))
+    - ACHTUNG: der Else-Zweig beinhaltet entweder keine Anweisung oder GENAU eine.
+    
+WHEN
+    - Syntax: (WHEN (test) (action1) ... (actionN))
+    - Im Gegensatz zu IF können auf einen erfolgreichen Test beliebig viele Aktionen bei entsprechender Klammerung folgen.
+    
+CASE
+    - Syntax:   (CASE key
+                    (val1 (action1))
+                    ...
+                    (valN (actionN))
+                )
+    - Entspricht dem Switch in Java. 
+    
+COND
+    - Syntax:   (COND ((test1) (action1))
+                    ...
+                    ((testN) (actionN))
+                    (T (action))
+                )
+    - Bei entsprechender Klammerung können auf einen Test mehrere Aktionen folgen
+    - Es wird immer die Aktionen des ersten passenden Tests ausgeführt!
+    - (T (action)): T steht für das boolesche true, sodass dieser Zweig ausgeführt wird, wenn alle anderen Tests fehlschlagen.
+                
+=================
+>>> Schleifen <<<
+=================
+LOOP
+    - Syntax:   (LOOP
+                    (actions)
+                    (return var)
+                )
+    - ACHTUNG: wird solange ausgeführt bis ein return erfolgt.
+    
+LOOP FOR
+    - Syntax 1: (LOOP FOR loopvar IN list
+                    do (actions)
+                )
+    - entspricht einer for-each-Schleife.
+    - Syntax 2: (LOOP FOR loopvar FROM val1 TO val2
+                    do (actions)
+                )
+    - entspricht einer Zählschleife.
+    
+DO
+    - Syntax:   (DO
+                    (var1 val1 update1)
+                    ...
+                    (varN valN updateN)
+                    ((test) (valReturn))
+                    (s-expression)
+                )
+    - den Variablen var1 ... varN werden die initialen Werte val1 ... valN zugewiesen. Mit jedem Schleifendurchlauf werden die 
+        Werte der Variablen um die zugehörigen update1 ... updateN verändert. Dies geschieht solange, bis test zu T auswertet und
+        ein Return erfolgt. s-expression ist optional und wird bei jedem Schleifendurchlauf ebenfalls ausgeführt bis der Return-test
+        zu T auswertet.
+        
+DOTIMES
+    - Syntax:   (DOTIMES var times
+                    (actions)
+                )
+    - Aktionen werden genau times-mal ausgeführt, wobei var der Laufindex ist.
+    
+DOLIST
+    - Syntax:   (DOLIST (ele varlist)
+                    (actions)
+                )
+    - eine Liste varlist wird durchiteriert, wobei ele das aktuelle Listenelement hält.
+    - MERKE: die Reihenfolge der Listenelemente wird beibehalten.
+
+==============
+>>> Listen <<<
+==============
+Aufbau von Listen:
+
+        cons1               cons2
+    --------------      --------------
+    | car | cdr -|------| card | cdr |  ...
+    --------------      --------------
+       |                   |
+      val1                val2
+    
+    - Listenelemente (CONS) sind zweigeteilt: der erste Teil (CAR) hält den Wert eines Elements, währende der zweite Teil (CDR) auf
+        folgende Listenelement verweist (einfach verkettete Liste).
+
+Erzeugen von Listen
+    - '(1 2 3 4 5)      Erzeugt eine Liste mit den Elementen 1-5
+    - (list 1 2 3 4 5)  s.o.
+        
+CAR
+    - Syntax:   (CAR varlist)
+    - Liefert den Wert eines Listenelements bzw. des ersten Listenelements, sofern eine Liste Übergeben wurde: (CAR '(1 2 3 4 5)) liefert also 1
+
+CDR
+    - Syntax:   (CDR varlist)
+    - Liefert Listenelemente, die an einem Listenelement angehängt sind: (CDR '(1 2 3 4 5)) liefert also (2 3 4 5)
+
+APPEND
+    - Syntax: (append varlist varele)
+    - hängt an die Liste varlist das neue Element varele an und .
+    - ist varlist NIL, so wird varele dennoch angehängt, denn NIL steht auch für eine leere Liste.
+    - mittels APPEND können aber auch mehrere Listen zusammengeführt werden.
+    
+LIST
+    - Syntax:   
+    
+MEMBER
+    - Syntax:   (MEMBER val varlist)
+    - ist val vorhanden, so gibt MEMBER eine Liste zurück, deren erstes Element val enthält. Andernfalls NIL
+    
+FIRST
+    - Syntax:   (FIRST varlist)
+    - gibt den Wert des ersten Listenelements zurück.
+
+SECOND
+    - Syntax:   (SECOND varlist)
+    - gibt den Wert des zweiten Listenelements zurück
+
+...
+
+FOURTH
+    - Syntax:   (FOURTH varlist)
+    - gibt den Wert des vierten Listenelements zurück
+    - analog mit FIFTH, ...
+
+NTH
+    - Syntax:   (NTH n varlist)
+    - gibt den Wert des n-ten Listenelements zurück.
+
+REST
+    - Syntax:   (REST varlist)
+    - gibt eine Liste ohne dem ersten Listenelement zurück.
+
+LAST
+    - Syntax:   (LAST varlist)
+    - gibt das letzte Listenelement zurück, NICHT den enthaltenen Wert.
+    
+LENGTH
+    - Syntax:   (LENGTH varlist)
+    - gibt die Länge der Liste zurück.
+
+=============================
+>>> Strings und Character <<<
+=============================
+STRING:
+    - werden wie gewohnt mit Anführungszeichen umschlossen
+    
+Vergleichen von Strings:
+    Case Sensitiv       Case Insensitive        Beschreibung
+    string=             string-equal            T, wenn alle Werte gleich
+    string/=            string-not-equal        T, wenn alle Werte ungleich
+    
+SUBSEQ
+    - Syntax:   (SUBSEQ varstring left right)
+    - gibt einen Teilstring zurück, wobei left eine inklusive und right exklusive Grenze darstellt.
+        Bsp.: (SUBSEQ "Hello World" 0 6) -> "Hello " statt "Hello W"
+    - Wird nur ein Zahlenwert n vorgegeben, so wird der String beginnen an Position n (inklusiv) bis zum Ende ausgegeben.
+        Bsp.: (SUBSEQ "Hello World" 6) -> "World"
+    
+CHAR
+    - Syntax:   (CHAR varstring index)
+    - gibt den Character am angegebenen Index aus. Character werden mit #\ gekennzeichnet.
+        Bsp.: (CHAR "Hello World" 6) -> #\W , ist also case sensitive.
+        
+LENGTH
+    - Syntax:   (LENGTH varstring)
+    - gibt die Länge eines Strings zurück.
+    
+CONCATENATE
+    - Syntax:   (CONCATENATE 'STRING varstring1 varstring2 ...)
+    - Konkatenation von Strings.
+    
+PARSE-INTEGER
+    - Syntax:   (PARSE-INTEGER varstring)
+    - Parst eine Zahl, die als String gegeben ist, in einen Integer-Zahlenwert.
+
+WRITE-TO-STRING
+    - Syntax:   (WRITE-TO-STRING var)
+    - schreibt den Wert von var als String unabhängig vom Datentyp.
+    - wichtig für das dynamische Erzeugen von Chunk-Slots in ACT-R, die sich nur durch fortlaufende Nummerierung voneinander
+        unterscheiden.
+    - Bsp. Integer: 
+        (WRITE-TO-STRING 42) -> ("42")
+    - Bsp. Structure: 
+        (WRITE-TO-STRING (MAKE-progcard :direction 'forward :range 3 :prio 300)) -> "#S(PROGCARD :DIRECTION FORWARD :RANGE 3 :PRIO 300)"
+
+READ-FROM-STRING
+    - Syntax:   (READ-FROM-STRING varstring)
+    - erzeugt ein Symbol aus dem übergebenen String.
+    - wichtig für das Erzeugen von Chunks sowie dynamischer Chunk-Slots in ACT-R!
+    - Bsp.: (READ-FROM-STRING "forward") -> FORWARD
+
+==================
+>>> Structures <<<
+==================
+- sind LISP-Objekte, die automatisch bei Erzeugung Bestandteil der LISP-Typhierarchie werden. Ob Structures auch über eigene Funktionen
+    verfügen können, wurde nicht recherchiert, da dieses für die Aufgabenstellung irrelevant ist.
+    
+DEFSTRUCT
+    - Syntax:   (DEFSTRUCT name att1 att2 ... attn)
+    - legt ein Structure vom Typ name mit den Feldern att1 ... attn an (d.h. Konstruktor und Zugriffsfunktionen auf Attribute werden erzeugt).
+
+MAKE (Konstruktor)
+    - Syntax:   (MAKE-name :att1 val1 :att2 val2 ... attn valn)
+    - erzeugt ein neues LISP-Object und belegt att1 - attn mit den zugehörigen Werten val1 - valn.
+        Bsp.: (MAKE-progcard :direction 'forward :range 3 :prio 300) -> progcard-Instanz mit    direction = FORWARD
+                                                                                                range = 3
+                                                                                                prio = 300
+    - es ist auch möglich att1 - attn zu einem späteren Zeitpunkt mit Werten zu belegen, sodass diese nicht im Konstruktor angegegeben werden müssen.
+
+Zugriff auf Attribute
+    - auf die Attribute kann mittels (name-att1 instanz) zugegriffen werden. Folgendes Code-Snippet als Beispiel:
+        (SETF card (MAKE-progcard :direction 'forward :range 3 :prio 300))  <<< Instanz anlegen und der Variablen card zuweisen
+        (progcard-direction card) -> FORWARD                                <<< Zugriff auf das Attribut direction der Instanz
+    - die Werte für Attribute können nachträglich noch geändert werden:
+        (SETF (progcard-direction card) 'backward)                          <<< setze das Attribut direction von card auf das Symbol BACKWARD
+    
+===============
+>>> Arrays <<<
+===============
+MAKE-ARRAY
+    - Syntax:   (MAKE-ARRAY `(,yy ,xx))
+    - erzeugt ein Array mit der Dimension yy xx. (` = backquote-Operator)
+
+AREF
+    - Syntax:   (AREF array yy xx)
+    - Zugriff auf ein Element eines zweidimensionalen Arrays. Mittels SETF kann der entsprechende Wert geändert werden.
+
+DIMENSION (Array)
+    - Syntax:   (ARRAY-DIMENSION arr)
+    - gibt die Dimension des Arrays arr als Liste aus.
+
+==================
+>>> Operatoren <<<
+==================
+
+Für folgende Zeilen filt: A = 10 und B = 20
+
+Operator    Beschreibung                Anmerkung
+-----------------------------------------------------------------
++,-,*,/     Addition, ...               Division: (/ 5 2) -> 5/2
+mod,rem     Modulus, Remainder 
+incf        Inkrement-Operator          (incf A 3) ergibt 13
+decf        Dekrement-Operator          (decf A 4) ergibt 9
+VERGLEICHSOPERATOREN
+=,eq        Test auf Gleichheit         (= A B) ergibt NIL
+/=,neq      Test auf Ungleichheit 
+>           Test auf monoton fallend
+<           Test auf monoton steigend
+>=          Größer-gleich-Vergleich
+<=          Kleiner-gleich-Vergleich
+max         gibt Maximum zurück         (max A B) ergibt 20
+min         gibt Minimum zurück 
+LOGISCHE OPERATOREN
+and         AND-Verknüpfung             
+or          OR-Verknüpfung
+not         Negation
+
+------------------------------------------------
+| sonstige nützliche Funktionen, Verknüpfungen |
+------------------------------------------------
+(abs var)   - Betrag von var
+(null var)  - überprüft, ob eine Variable oder eine Funktion/Ausdruck zu NIL auswertet
+(print var) - gibt die Variable oder die Rückgabe einer Funktion auf der Konsole aus
+
+AUSGABE IN TXT
+    (with-open-file (my-stream "../test.txt" :direction :output :if-exists :supersede)
+        (print var my-stream))
+
+---------
+| ACT-R |
+---------
+ACT-R-Funktionen unterdrücken in der Regel die Auswertung:
+    (ADD-DM card ISA PROGCARD DIRECTION var1 RANGE var2 PRIO var3)
+Hier würde ACT-R die Werte der Variablen nicht ins deklarative Gedächtnis (DM) übernehmen, sondern die Bezeichnungen der Variablen
+selbst. Folgende Slot-Werte würden sich also ergeben (der Name des Chunks wäre card):
+    ISA         PROGCARD
+    DIRECTION   var1
+    RANGE       var2
+    PRIO        var3
+    
+Damit die Variablenwerte statt der Variablenbezeichnungen verwendet werden, ist an die Funktion das Suffix '-fct' anzuhängen. Für ADD-DM bedeutet
+dies aber auch, dass man selbst für korrekte Datentypen sorgen muss: CHUNKS und deren SLOTS sind Symbole. Auch erwartet ADD-DM-FCT eine List von Listen
+als Eingabe. Bsp.:
+    (ADD-DM-FCT 
+        (LIST (LIST card 'ISA 'PROGCARD 'DIRECTION var1 'RANGE var2 'PRIO var3))
+    )
+Hier nun würde der Interpreter die Variablenwert verwenden anstatt deren Bezeichnungn.
+ACHTUNG: Es muss zunächst ein ACT-R-Modell geladen werden, ehe aus LISP-Code heraus ADD-DM-FCT aufgerufen werden kann!
+
+Das Suffix '-fct' gibt es auch für andere ACT-R-Funktionen.

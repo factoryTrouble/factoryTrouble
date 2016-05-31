@@ -1,0 +1,2 @@
+include "api", "gameEngine", "ai", "gui", "boardCreator", "spring", "networkCore", "client", "server"
+rootProject.name = 'FactoryTrouble'
